@@ -8,12 +8,16 @@ public class Usuarios extends Controller {
 		public static void login(String login, String senha) {
 			Usuario usuario = Usuario.find("login = ? and senha = ?", login, senha).first();
 			if(usuario == null) {
-				renderTemplate("/Application/index.html");
+				Application.index();
 			} else {
-				renderTemplate("/Application/gerenciador.html");
+				Application.gerenciador();
 			}
 		}
-//			Application.gerenciador();
-			
+		
+		public static void logout() {
+			Application.index();
+		}
+		
+		
 
 }

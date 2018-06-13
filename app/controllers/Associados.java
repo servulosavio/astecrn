@@ -22,8 +22,9 @@ public class Associados extends Controller {
 		renderTemplate("Associados/novo.html", associado);
 	}
 	
-	public static void detalhes(Associado associado) {
-		render(associado);
+	public static void detalhes(Long id) {
+		Associado associado = Associado.findById(id);
+		renderTemplate("Associados/detalhes.html", associado);
 	}
 	
 	public static void listar() {

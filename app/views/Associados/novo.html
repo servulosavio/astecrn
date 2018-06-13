@@ -38,7 +38,7 @@
 		<div class="input-field col s6">
 			<i class="material-icons prefix">group</i>
 			<select value="${associado?.estado_civil}" name="associado.estado_civil" id="estado_civil" type="text" class="validate">
-		    	<option value="" disabled selected>Selecione...</option>
+		    	<option value="${associado.estado_civil}" disabled selected>${associado?.estado_civil}...</option>
 		    	<option value="Solteiro">Solteiro(a)</option>
 		    	<option value="Casado">Casado(a)</option>
 		    	<option value="Divorciado">Divorciado(a)</option>
@@ -64,12 +64,12 @@
 			<input value="${associado?.assistencia}" name="associado.assistencia" id="assistencia" type="text" class="validate">
 			<label for="assistencia">Assistência</label>
 		</div>
-		
+
 		<div class="input-field col s12" align="center">
-              <button class="btn waves-effect waves-light" type="submit">Cadastrar
-              <i class="material-icons right">send</i>
-            </button> 
-          </div>
-						
+			<button class="btn waves-effect waves-light" type="submit">
+				Salvar <i class="material-icons right">save</i>
+			</button>
+		</div>
+
 	</div>
 </form>
