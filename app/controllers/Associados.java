@@ -3,7 +3,6 @@ package controllers;
 import java.util.List;
 
 import models.Associado;
-import models.Cliente;
 import play.mvc.Controller;
 
 public class Associados extends Controller {
