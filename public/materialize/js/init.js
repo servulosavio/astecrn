@@ -1,7 +1,9 @@
 (function($){
   $(function(){
 
-    $('.button-collapse').sideNav();
+    
+	$('.modal').modal();
+	$('.button-collapse').sideNav();
     $('.parallax').parallax();
     $('select').material_select();
     $(document).ready(function () { 
@@ -17,6 +19,7 @@
     });
     
     $('.sidenav').sidenav();
+    
     
     
     

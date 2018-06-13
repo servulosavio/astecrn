@@ -4,15 +4,16 @@ import models.Usuario;
 import play.mvc.Controller;
 
 public class Usuarios extends Controller {
-
-		public static void login(Usuario usuario) {
-			if (usuario.getLogin().equals("admin") && usuario.getSenha().equals("123")) {
-				renderTemplate("/Application/gerenciador.html");
-				//redirect("@{Application.gerenciador}");
+		
+		public static void login(String login, String senha) {
+			Usuario usuario = Usuario.find("login = ? and senha = ?", login, senha).first();
+			if(usuario == null) {
+				renderTemplate("/Application/index.html");
 			} else {
-				System.out.println("Usuário ou Senha inválidos");
+				renderTemplate("/Application/gerenciador.html");
 			}
-			
 		}
+//			Application.gerenciador();
+			
 
 }
