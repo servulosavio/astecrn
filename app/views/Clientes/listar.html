@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Listar Clientes' /}
+
+<!-- <h1>Listar Clientes</h1> -->
+
+<!-- <ul> -->
+<!-- #{list items:clientes, as:'cliente'} -->
+<!-- 	<li> ${cliente.nome} </li> -->
+<!-- #{/list} -->
+<!-- </ul> -->
+<!-- #{else}Nenhum Cliente na lista.#{/else} -->
+
+
+<div class="card mb-3">
+ <div class="card-header">
+   <i class="fa fa-table"></i>Listagem de Cliente</div>
+ <div class="card-body">
+    
+     <table class="table dataTable" id="dataTable">
+       <thead>
+         <tr><th rowspan="1" colspan="1">#ID</th>
+         <th rowspan="1" colspan="1">Nome</th>
+         <th rowspan="1" colspan="1">Telefone</th>
+         <th rowspan="1" colspan="1">Cidade</th>
+         <th rowspan="1" colspan="1">Assistencia</th>
+         
+         <th>Ações</th>
+       </thead>
+       <tbody>
+	#{list items:clientes, as:'cliente'}
+		<tr role="row">
+           <td>${cliente.id}</td>
+           <td>${cliente.nome}</td>
+           <td>${cliente.telefone}</td>
+           <td>${cliente.cidade}</td>
+           <td>${cliente.assistencia}</td>
+           <td>
+           		<a href="@{Clientes.editar(cliente.id)}">Editar</a>
+           	  	<a href="@{Clientes.remover(cliente.id)}">Remover</a>
+           	</td>
+         </tr>
+	#{/list}
+	</tbody>
+    </table>
+  </div>
+</div>
+  

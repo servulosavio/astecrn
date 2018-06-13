@@ -1,0 +1,19 @@
+#barra, header, main, footer {
+	padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+	#barra, header, main, footer {
+		padding-left: 0;
+	}
+}
+
+#logo_adm {
+	max-width: 150px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

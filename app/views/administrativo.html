@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ASTEC-RN</title>
+
+<!-- CSS  -->
+<link href="@{'/public/materialize/css/icon.css'}" rel="stylesheet">
+<link href="@{'/public/materialize/css/materialize.css'}"
+	type="text/css" rel="stylesheet" media="screen,projection" />
+<link href="@{'/public/materialize/css/style.css'}" type="text/css"
+	rel="stylesheet" media="screen,proj ection" />
+<link rel="stylesheet" type="text/css"
+	href="@{'/public/materialize/css/estilo.css'}">
+<link rel="stylesheet" type="text/css"
+	href="@{'/public/materialize/css/estilo_adm.css'}">
+
+#{get 'moreStyles' /}
+</head>
+
+
+<body>
+	<nav class="white" role="navigation" id="barra">
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo center"><img id="logo_adm"
+				class="responsive-img center"
+				src="@{'/public/materialize/img/logo.png'}"></a> <a href="#"
+				data-activates="slide-out" class="button-collapse"><i
+				class="material-icons">menu</i></a>
+		</div>
+	</nav>
+
+
+
+	<ul id="slide-out" class="side-nav fixed">
+		<li><div class="user-view">
+				<div class="background">
+					<img class="responsive-img center"
+						src="@{'/public/materialize/img/img2.jpg'}">
+				</div>
+				<a href="#!user"><img class="circle"
+					src="@{'/public/materialize/img/user.png'}"></a> <a href="#!name"><span
+					class="white-text name">Sérvulo Sávio</span></a> <a href="#!email"><span
+					class="white-text email">jdandturk@gmail.com</span></a>
+			</div></li>
+		<li><a href="@{Associados.novo}"><i class="material-icons">cloud</i>Cadastrar Associados</a></li>
+		<li><a href="#!">Second Link</a></li>
+		<li><div class="divider"></div></li>
+		<li><a class="subheader">Subheader</a></li>
+		<li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+	</ul>
+
+
+
+
+
+	<main>
+	<div class="container">
+		<div class="section">#{doLayout /}</div>
+	</div>
+	</main>
+
+
+
+
+
+	<footer class="page-footer green darken-4">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Biografia</h5>
+					<p class="grey-text text-lighten-4 justify">A ASTEC-RN é a
+						primeira Associação de Técnicos em Manutenção de Celulares do
+						Brasil. Nosso objetivo é reunir e apoiar os profissionais da área
+						para que possamos oferecer sempre o melhor serviço para o
+						consumidor.</p>
+
+
+				</div>
+				<div class="col l3 s12">
+					<h5 class="white-text">Settings</h5>
+					<ul>
+						<li><a class="white-text" href="#!">Link 1</a></li>
+						<li><a class="white-text" href="#!">Link 2</a></li>
+						<li><a class="white-text" href="#!">Link 3</a></li>
+						<li><a class="white-text" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+				<div class="col l3 s12">
+					<h5 class="white-text">Connect</h5>
+					<ul>
+						<li><a class="white-text"
+							href="https://www.facebook.com/astecrn">Facebook</a></li>
+						<li><a class="white-text" href="#!">Link 2</a></li>
+						<li><a class="white-text" href="#!">Link 3</a></li>
+						<li><a class="white-text" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container center-align">
+				Desenvolvido por <a class="brown-text text-lighten-3"
+					href="http://smusicdigital.com">S'Music Digital</a><br />Copyright
+				© 2018 Materialize
+			</div>
+		</div>
+	</footer>
+
+
+	<!--  Scripts-->
+	<script src="@{'/public/materialize/js/jquery-3.3.1.min.js'}"></script>
+	<script src="@{'/public/materialize/js/materialize.js'}"></script>
+	<script src="@{'/public/materialize/js/init.js'}"></script>
+	<script type="text/javascript" src="@{'/public/materialize/js/jquery.mask.js'}"></script>
+
+
+	#{get 'moreScripts' /}
+
+</body>
+</html>

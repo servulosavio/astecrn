@@ -1,0 +1,75 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Cadastro de Associados' /}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+
+<form class="col s12" action="@{Associados.salvar}" method="post">
+	<div class="row">
+		
+		<input type="hidden" value="${associado?.id}" name="associado.id">
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">account_circle</i>
+			<input value="${cliente?.nome}" name="cliente.nome" id="nome" type="text" class="validate">
+			<label for="nome">Nome</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">credit_card</i>
+			<input value="${cliente?.cpf}" name="cliente.cpf" id="cpf" type="text" class="validate">
+			<label for="cpf">CPF</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">subtitles</i>
+			<input value="${cliente?.rg}" name="cliente.rg" id="rg" type="text" class="validate">
+			<label for="rg">RG</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">event</i>
+			<input value="${cliente?.dt_nascimento}" name="cliente.dt_nascimento" id="dt_nascimento" type="text" class="validate">
+			<label for="dt_nascimento">Data de Nascimento</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">group</i>
+			<select value="${cliente?.estado_civil}" name="cliente.estado_civil" id="estado_civil" type="text" class="validate">
+		    	<option value="" disabled selected>Selecione...</option>
+		    	<option value="Solteiro">Solteiro(a)</option>
+		    	<option value="Casado">Casado(a)</option>
+		    	<option value="Divorciado">Divorciado(a)</option>
+		    	<option value="Viúvo">Viúvo(a)</option>
+		    </select>
+			<label for="estado_civil">Estado Civíl</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">call</i>
+			<input value="${cliente?.telefone}" name="cliente.telefone" id="telefone" type="text" class="validate">
+			<label for="telefone">Telefone</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">home</i>
+			<input value="${cliente?.cidade}" name="cliente.cidade" id="cidade" type="text" class="validate">
+			<label for="cidade">Cidade</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">build</i>
+			<input value="${cliente?.assistencia}" name="cliente.assistencia" id="assistencia" type="text" class="validate">
+			<label for="assistencia">Assistência</label>
+		</div>
+		
+		<div class="input-field col s12" align="center">
+              <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+              <i class="material-icons right">send</i>
+            </button> 
+          </div>
+						
+	</div>
+</form>

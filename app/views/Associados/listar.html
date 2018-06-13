@@ -1,0 +1,21 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Lista de Associados' /}
+
+<table class="table dataTable" id="dataTable">
+	<thead>
+		<th rowspan="1" colspan="1">Nome</th>
+		<th rowspan="1" colspan="1">Telefone</th>
+		<th rowspan="1" colspan="1">Cidade</th>
+		<th rowspan="1" colspan="1">Assistencia</th>
+	</thead>
+	<tbody>
+		#{list items:associados, as:'associado'}
+		<tr role="row">
+			<td>${associado.nome}</td>
+			<td>${associado.telefone}</td>
+			<td>${associado.cidade}</td>
+			<td>${associado.assistencia}</td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
