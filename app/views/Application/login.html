@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ASTEC-RN</title>
+
+<!-- CSS  -->
+<link href="@{'/public/materialize/css/icon.css'}" rel="stylesheet">
+<link href="@{'/public/materialize/css/materialize.css'}"
+	type="text/css" rel="stylesheet" media="screen,projection" />
+<link href="@{'/public/materialize/css/style.css'}" type="text/css"
+	rel="stylesheet" media="screen,proj ection" />
+<link rel="stylesheet" type="text/css"
+	href="@{'/public/materialize/css/estilo.css'}">
+<link rel="stylesheet" type="text/css"
+	href="@{'/public/materialize/css/estilo_adm.css'}">
+</head>
+
+
+<body>
+	
+	<nav class="white" role="navigation">
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo center"><img id="logo_adm"
+				class="responsive-img center"
+				src="@{'/public/materialize/img/logo.png'}"></a> <a href="#"
+				data-activates="slide-out" class="button-collapse"><i
+				class="material-icons">menu</i></a>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="section">
+
+			<div class="col s6">
+				<div id="login" class="card-panel">
+					
+					<form action="@{Sessao.login}" method="post" class="col s12">
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">account_circle</i> <input
+									id="login" name="login" type="text" class="validate"> <label
+									for="login">Usuário</label>
+							</div>
+							<div class="input-field col s12">
+								<i class="material-icons prefix">lock</i> <input id="senha"
+									name="senha" type="password" class="validate"> <label
+									for="senha">Senha</label>
+							</div>
+
+							<div class="input-field col s12" align="center">
+								<button class="btn waves-effect waves-light" type="submit">
+									Entrar <i class="material-icons right">send</i>
+								</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<main>
+	</main>
+
+
+
+
+
+	<footer1 class="page-footer green darken-4">
+		
+		<div class="footer-copyright">
+			<div class="container center-align">
+				Desenvolvido por <a class="brown-text text-lighten-3"
+					href="http://smusicdigital.com">S'Music Digital</a><br />Copyright
+				© 2018 Materialize
+			</div>
+		</div>
+	</footer1>
+
+
+	<!--  Scripts-->
+	<script src="@{'/public/materialize/js/jquery-3.3.1.min.js'}"></script>
+	<script src="@{'/public/materialize/js/materialize.js'}"></script>
+	<script src="@{'/public/materialize/js/init.js'}"></script>
+	<script type="text/javascript" src="@{'/public/materialize/js/jquery.mask.js'}"></script>
+
+
+
+</body>
+</html>

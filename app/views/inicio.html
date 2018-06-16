@@ -17,7 +17,11 @@
 </head>
 
 
+
 <body>
+
+<main>
+
 	<img id="logo" class="responsive-img center"
 		src="@{'/public/materialize/img/logo.png'}">
 
@@ -29,7 +33,6 @@
 				<li><a href="@{Application.contato}">Contato</a></li>
 			</ul>
 			<ul class="right hide-on-med-and-down">
-				<!-- <li><a href="@{Usuarios.login}">Área Restrita</a></li> -->
 				<li><a class="waves-effect waves-light modal-trigger"
 					href="#modal1">Área Restrita</a></li>
 			</ul>
@@ -38,7 +41,6 @@
 				<li><a href="@{Application.index}">Início</a></li>
 				<li><a href="@{Application.associados}">Associados</a></li>
 				<li><a href="@{Application.contato}">Contato</a></li>
-				<!-- <li><a href="@{Usuarios.login}">Área Restrita</a></li> -->
 				<li><a class="waves-effect waves-light modal-trigger"
 					href="#modal1">Área Restrita</a></li>
 			</ul>
@@ -52,15 +54,13 @@
 	</div>
 	
 	#{doLayout /}
-
 	
-
-
+	
 	<!-- Modal Structure -->
 	<div id="modal1" class="modal">
 		<div class="modal-content">
 			<div class="row">
-				<form action="@{Usuarios.login}" method="post" class="col s12">
+				<form action="@{Sessao.login}" method="post" class="col s12">
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">account_circle</i>
@@ -84,7 +84,8 @@
 		</div>
 	</div>
 
-	
+
+</main>	
 
 
 

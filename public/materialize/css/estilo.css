@@ -18,6 +18,21 @@
 	max-width: 500px;
 }
 
+/* #login {
+	display: inline-block;
+		
+} */
+
 #index-banner {
 	margin-top: 1px;
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

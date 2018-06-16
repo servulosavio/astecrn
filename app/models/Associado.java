@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import play.db.jpa.Model;
 
 @Entity
-public class Associado extends Model {
+public class Associado extends Usuario {
 	
 	public String nome;
 	public String cpf;

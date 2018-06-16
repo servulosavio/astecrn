@@ -26,6 +26,10 @@ public class Application extends Controller {
 		render(associados);
 	}
     
+    public static void login() {
+        render();
+    }
+    
     
 
 }
