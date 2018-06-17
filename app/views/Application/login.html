@@ -31,38 +31,36 @@
 	</nav>
 
 
-	<div class="container">
-		<div class="section">
-
-			<div class="col s6">
-				<div id="login" class="card-panel">
-					
-					<form action="@{Sessao.login}" method="post" class="col s12">
-						<div class="row">
-							<div class="input-field col s12">
-								<i class="material-icons prefix">account_circle</i> <input
-									id="login" name="login" type="text" class="validate"> <label
-									for="login">Usuário</label>
-							</div>
-							<div class="input-field col s12">
-								<i class="material-icons prefix">lock</i> <input id="senha"
-									name="senha" type="password" class="validate"> <label
-									for="senha">Senha</label>
-							</div>
-
-							<div class="input-field col s12" align="center">
-								<button class="btn waves-effect waves-light" type="submit">
-									Entrar <i class="material-icons right">send</i>
-								</button>
-							</div>
+	<div id="modal1" class="row">
+		<div class="modal-content">
+			<div class="row">
+				<form action="@{Sessao.login}" method="post" class="col s12">
+					<div class="row">
+						#{if flash.error}
+						<div class="chip waves-effect waves-light green darken-4 white-text col s12 center">${flash.error.raw()}</div>
+						#{/if}
+						<div class="input-field col s12">
+							<i class="material-icons prefix">account_circle</i> <input
+								id="login" name="login" type="text" class="validate"> <label
+								for="login">Usuário</label>
 						</div>
-					</form>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">lock</i> <input id="senha"
+								name="senha" type="password" class="validate"> <label
+								for="senha">Senha</label>
+						</div>
 
-				</div>
+						<div class="input-field col s12" align="center">
+							<button class="btn waves-effect waves-light" type="submit">
+								Entrar <i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				</form>
 			</div>
-
 		</div>
 	</div>
+
 
 	<main>
 	</main>
