@@ -9,6 +9,7 @@ public class Usuario extends Model {
 	
 	public String login;
 	public String senha;
+	public boolean estado;
 	
 }
 

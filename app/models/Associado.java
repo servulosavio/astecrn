@@ -16,7 +16,8 @@ public class Associado extends Usuario {
 	public String estado_civil;	
 	public String telefone;
 	public String cidade;
-	public String assistencia;
+	Assistencia assistencia;
+	
 	
 
 }

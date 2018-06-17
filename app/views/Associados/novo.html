@@ -60,10 +60,18 @@
 		</div>
 		
 		<div class="input-field col s6">
-			<i class="material-icons prefix">build</i>
-			<input value="${associado?.assistencia}" name="associado.assistencia" id="assistencia" type="text" class="validate">
-			<label for="assistencia">Assistência</label>
+			<i class="material-icons prefix">group</i>
+			<select value="${associado?.assistencia}" name="associado.assistencia" id="assistencia" type="text" class="validate">
+		    	#{list items:assistencias, as:'assistencia'}
+		    	<option value="${assistencia.razaoSocial}" disabled selected>${associado?.assistencia}...</option>
+		    	
+		    	<option value="${assistencia.razaoSocial}">${assistencia.razaoSocial}</option>
+		    	#{/list}
+		    </select>
+			<label for="assistencia">Assistencia</label>
 		</div>
+		
+		
 
 		<div class="input-field col s12" align="center">
 			<button class="btn waves-effect waves-light" type="submit">
