@@ -8,6 +8,13 @@
 
 <form class="col s12">
 	<div class="row">
+	
+		<div>
+			#{if associado.foto?.exists()}
+				<img	height="150px" width="150px" src="@{Associados.fotoAssociado(associado.id)}"><br> 
+			#{/if}
+		</div>
+		
 		
 		
 
@@ -31,7 +38,7 @@
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">event</i>
-			<input disabled value="${associado.dt_nascimento}" name="associado.dt_nascimento" id="dt_nascimento" type="text" class="validate black-text text-darken-2">
+			<input disabled value="${associado.dt_nascimento?.format()}" name="associado.dt_nascimento" id="dt_nascimento" type="text" class="validate black-text text-darken-2">
 			<label for="dt_nascimento">Data de Nascimento</label>
 		</div>
 		
@@ -57,6 +64,18 @@
 			<i class="material-icons prefix">build</i>
 			<input disabled value="${associado?.assistencia}" name="associado.assistencia" id="assistencia" type="text" class="validate black-text text-darken-2">
 			<label for="assistencia">Assistência</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">home</i>
+			<input disabled value="${associado?.login}" name="associado.login" id="login" type="text" class="validate">
+			<label for="login">Login</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">home</i>
+			<input disabled value="${associado?.senha}" name="associado.senha" id="senha" type="password" class="validate">
+			<label for="senha">Senha</label>
 		</div>
 		
 		<div class="input-field col s12" align="center">

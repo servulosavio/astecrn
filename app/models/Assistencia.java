@@ -18,5 +18,10 @@ public class Assistencia extends Model {
 	public String cep;
 	public String cidade;
 	public String estado;
+	
+	@Override
+	public String toString() {
+		return nomeFantasia;
+	}
 
 }

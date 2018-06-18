@@ -2,16 +2,22 @@ package controllers;
 
 import java.util.List;
 
+import models.Assistencia;
 import models.Associado;
 import play.mvc.Controller;
 
 public class Associados extends Controller {
 	
 	public static void novo(Associado associado) {
-		render(associado);
+		List<Assistencia> assistencias = Assistencia.findAll();
+		render(associado, assistencias);
 	}
 	
 	public static void salvar(Associado associado) {
+		System.out.println(params.get("excluirFoto"));
+		if(params.get("excluirFoto") != null) {
+			associado.foto.getFile().delete();
+		}
 		associado.save();
 		listar();
 		
@@ -29,7 +35,8 @@ public class Associados extends Controller {
 	
 	public static void listar() {
 		List<Associado> associados = Associado.findAll();
-		render(associados);
+		List<Assistencia> assistencias = Assistencia.findAll();
+		render(associados, assistencias);
 	}
 	
 	public static void remover(Long id) {
@@ -42,5 +49,13 @@ public class Associados extends Controller {
 		List<Associado> associados = Associado.findAll();
 		render(associados);
 	}
+	
+	public  static  void  fotoAssociados(Long  id) {
+	    Associado associado = Associado.findById(id);
+	    notFoundIfNull(associado);
+	    response.setContentTypeIfNotSet(associado.foto.type());
+	    renderBinary(associado.foto.get());
+	}
+	
 	
 }

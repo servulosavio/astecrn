@@ -3,6 +3,9 @@ package models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import play.db.jpa.Model;
 
@@ -12,12 +15,21 @@ public class Associado extends Usuario {
 	public String nome;
 	public String cpf;
 	public String rg;
-	public String dt_nascimento;
+	
+	@Temporal(TemporalType.DATE)
+	public Date dt_nascimento;
+	
 	public String estado_civil;	
 	public String telefone;
 	public String cidade;
-	Assistencia assistencia;
 	
+	@ManyToOne
+	public Assistencia assistencia;
+	
+	@Override
+	public String toString() {
+		return nome;
+	}
 	
 
 }

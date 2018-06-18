@@ -24,7 +24,7 @@ public class Assistencias extends Controller {
 	
 	public static void detalhes(Long id) {
 		Assistencia assistencia = Assistencia.findById(id);
-		renderTemplate("Assistencia/detalhes.html", assistencia);
+		renderTemplate("Assistencias/detalhes_assistencia.html", assistencia);
 	}
 	
 	public static void listar_assistencias() {

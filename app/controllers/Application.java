@@ -14,6 +14,8 @@ public class Application extends Controller {
     }
     
     public static void gerenciador() {
+    	/*String usuarioNome = Associado.class.toString();
+    	render(usuarioNome);*/
     	render();
     }
     

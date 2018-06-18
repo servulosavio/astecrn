@@ -1,0 +1,86 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Cadastro de Assistência' /}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+
+
+<form class="col s12">
+	<div class="row">
+		
+
+		<div class="input-field col s6">
+			<i class="material-icons prefix">account_circle</i>
+			<input disabled value="${assistencia?.razaoSocial}" name="assistencia.razaoSocial" id="razaoSocial" type="text" class="validate black-text text-darken-2">
+			<label for="razaoSocial">Razão Social</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">account_circle</i>
+			<input disabled value="${assistencia?.nomeFantasia}" name="assistencia.nomeFantasia" id="nome" type="text" class="validate black-text text-darken-2">
+			<label for="nomeFantasia">Nome Fantasia</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">credit_card</i>
+			<input disabled value="${assistencia?.cnpj}" name="assistencia.cnpj" id="cnpj" type="text" class="validate black-text text-darken-2">
+			<label for="cnpj">CNPJ</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">call</i>
+			<input disabled value="${assistencia?.telefone}" name="assistencia.telefone" id="telefone" type="text" class="validate black-text text-darken-2">
+			<label for="telefone">Telefone</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">subtitles</i>
+			<input disabled value="${assistencia?.rua}" name="assistencia.rua" id="rua" type="text" class="validate black-text text-darken-2">
+			<label for="rua">Rua</label>
+		</div>
+		
+		<div class="input-field col s2">
+			<i class="material-icons prefix">subtitles</i>
+			<input disabled value="${assistencia?.numero}" name="assistencia.numero" id="numero" type="text" class="validate black-text text-darken-2">
+			<label for="numero">Nº</label>
+		</div>
+		
+		<div class="input-field col s4">
+			<i class="material-icons prefix">subtitles</i>
+			<input disabled value="${assistencia?.complemento}" name="assistencia.complemento" id="complemento" type="text" class="validate black-text text-darken-2">
+			<label for="complemento">Complemento</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">subtitles</i>
+			<input disabled value="${assistencia?.bairro}" name="assistencia.bairro" id="bairro" type="text" class="validate black-text text-darken-2">
+			<label for="bairro">Bairro</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">subtitles</i>
+			<input disabled value="${assistencia?.cep}" name="assistencia.cep" id="cep" type="text" class="validate black-text text-darken-2">
+			<label for="cep">CEP</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">subtitles</i>
+			<input disabled value="${assistencia?.cidade}" name="assistencia.cidade" id="cidade" type="text" class="validate black-text text-darken-2">
+			<label for="cidade">Cidade</label>
+		</div>
+		
+		<div class="input-field col s6">
+			<i class="material-icons prefix">subtitles</i>
+			<input disabled value="${assistencia?.estado}" name="assistencia.estado" id="estado" type="text" class="validate black-text text-darken-2">
+			<label for="estado">Estado</label>
+		</div>
+		
+		
+		<div class="input-field col s12" align="center">
+			<a href="@{Assistencias.editar(assistencia.id)}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">create</i></a>
+           	<!-- <a href="@{Assistencias.remover(assistencia.id)}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a> -->
+		</div>
+
+	</div>
+</form>

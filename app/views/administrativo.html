@@ -46,10 +46,13 @@
 				<a href="#!user"><img class="circle"
 					src="@{'/public/materialize/img/user.png'}"></a> <a href="#!name"><span
 					class="white-text name">Sérvulo Sávio</span></a> <a href="#!email"><span
-					class="white-text email">jdandturk@gmail.com</span></a>
+					class="white-text email">${usuario?.login}</span></a>
 			</div></li>
 		<li><a class="waves-effect" href="@{Associados.novo}"><i class="material-icons">create_new_folder</i>Cadastrar Associados</a></li>
 		<li><a class="waves-effect" href="@{Associados.listar}"><i class="material-icons">format_list_bulleted</i>Listar Associados</a></li>
+		<li><div class="divider"></div></li>
+		<li><a class="waves-effect" href="@{Assistencias.nova_assistencia}"><i class="material-icons">create_new_folder</i>Cadastrar Assistencias</a></li>
+		<li><a class="waves-effect" href="@{Assistencias.listar_assistencias}"><i class="material-icons">format_list_bulleted</i>Listar Assistencias</a></li>
 		<li><div class="divider"></div></li>
 		<li><a href="@{Sessao.logout}"><i class="material-icons">cancel</i>Sair</a></li>
 	</ul>
