@@ -2,6 +2,9 @@ package controllers;
 
 import java.util.List;
 
+import org.eclipse.jdt.internal.codeassist.impl.AssistCompilationUnit;
+
+import enums.Status;
 import models.Assistencia;
 import models.Associado;
 import play.mvc.Controller;
@@ -18,6 +21,11 @@ public class Associados extends Controller {
 		if(params.get("excluirFoto") != null) {
 			associado.foto.getFile().delete();
 		}
+		if(params.get("status") != null) {
+			associado.status = Status.ATIVO;
+		} else {
+			associado.status = Status.INATIVO;
+		}
 		associado.save();
 		listar();
 		
@@ -25,7 +33,8 @@ public class Associados extends Controller {
 	
 	public static void editar(Long id) {
 		Associado associado = Associado.findById(id);
-		renderTemplate("Associados/novo.html", associado);
+		List<Assistencia> assistencias = Assistencia.findAll();
+		renderTemplate("Associados/novo.html", associado, assistencias);
 	}
 	
 	public static void detalhes(Long id) {

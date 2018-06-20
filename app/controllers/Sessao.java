@@ -1,5 +1,6 @@
 package controllers;
 
+import enums.Status;
 import models.Usuario;
 import play.mvc.Controller;
 
@@ -9,8 +10,13 @@ public class Sessao extends Controller {
 		Usuario usuario = Usuario.find("login = ? and senha = ?", login, senha).first();
 		if(usuario == null) {
 			flash.error("Usuário ou Senha inválidos, favor tente novamente");
+			session.put("usuario", usuario);
 			Application.login();
-		} else {
+		} 
+		if (usuario.status == Status.INATIVO) {
+			flash.error("Usuário inativo, contate o administrador");
+			Application.login();
+		}else {
 			Application.gerenciador();
 		}
 	}

@@ -12,7 +12,7 @@ public class Assistencia extends Model {
 	public String cnpj;
 	public String telefone;
 	public String rua;
-	public int numero;
+	public String numero;
 	public String complemento;
 	public String bairro;
 	public String cep;

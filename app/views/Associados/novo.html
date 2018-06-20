@@ -6,36 +6,44 @@
 </head>
 
 
-<form class="col s12" action="@{Associados.salvar}" method="post">
+<form class="col s12" action="@{Associados.salvar}" method="post" enctype="multipart/form-data">
 	<div class="row">
 		
 		<input type="hidden" value="${associado?.id}" name="associado.id">
+		
+		<div class="col s12 center">
+			#{if associado.foto?.exists()}
+				<img class=" circle" height="150px" width="150px" src="@{Associados.fotoAssociados(associado.id)}"><br>
+				<input type="checkbox" class="filled-in" id="filled-in-box" name="excluirFoto"/>
+				<label for="filled-in-box">Excluir Foto</label>
+			#{/if}
+		</div>
 
-		<div class="input-field col s6">
+		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">account_circle</i>
 			<input value="${associado?.nome}" name="associado.nome" id="nome" type="text" class="validate">
 			<label for="nome">Nome</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">credit_card</i>
 			<input value="${associado?.cpf}" name="associado.cpf" id="cpf" type="text" class="validate">
 			<label for="cpf">CPF</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${associado?.rg}" name="associado.rg" id="rg" type="text" class="validate">
 			<label for="rg">RG</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">event</i>
-			<input value="${associado?.dt_nascimento?.format()}" name="associado.dt_nascimento" id="dt_nascimento" type="text" class="validate">
-			<label for="dt_nascimento">Data de Nascimento</label>
+			<input value="${associado?.dtNascimento?.format()}" name="associado.dtNascimento" id="dtNascimento" type="text" class="validate">
+			<label for="dtNascimento">Data de Nascimento</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">group</i>
 			<select value="${associado?.estado_civil}" name="associado.estado_civil" id="estado_civil" type="text" class="validate">
 		    	<option value="${associado.estado_civil}" disabled selected>${associado?.estado_civil}...</option>
@@ -47,19 +55,19 @@
 			<label for="estado_civil">Estado Civíl</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">call</i>
 			<input value="${associado?.telefone}" name="associado.telefone" id="telefone" type="text" class="validate">
 			<label for="telefone">Telefone</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
 			<input value="${associado?.cidade}" name="associado.cidade" id="cidade" type="text" class="validate">
 			<label for="cidade">Cidade</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">group</i>
 			<select name="associado.assistencia.id" id="assistencia" type="text" class="validate">
 		    	<option value="${associado.assistencia}" disabled selected>${associado?.assistencia}...</option>
@@ -70,21 +78,23 @@
 			<label for="assistencia">Assistencia</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
 			<input value="${associado?.login}" name="associado.login" id="login" type="text" class="validate">
 			<label for="login">Login</label>
 		</div>
 		
-		<div class="input-field col s6">
+		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
 			<input value="${associado?.senha}" name="associado.senha" id="senha" type="password" class="validate">
 			<label for="senha">Senha</label>
 		</div>
+
 		
-		<div class="file-field input-field col s6">
+
+		<div class="file-field input-field col s12 m6 l12 xl6">
 			<div class="waves-effect waves-light btn">
-				<span>Selecionar</span> <input type="file" value="${associado?.foto}" name="associado.foto" id="foto">
+				<span>Selecionar</span> <input type="file" name="associado.foto" id="foto">
 			</div>
 			<div class="file-path-wrapper">
 				<input class="file-path validate" type="text"
@@ -92,7 +102,7 @@
 			</div>
 		</div>
 		
-		<div class="file-field input-field col s6">
+		<div class="file-field input-field col s12 m6 l12 xl6">
 			<div class="waves-effect waves-light btn">
 				<span>Selecionar</span> <input type="file" value="${associado?.documentos}" name="associado.documentos">
 			</div>
@@ -100,6 +110,12 @@
 				<input class="file-path validate" type="text"
 					placeholder="Selecione fotos dos documentos">
 			</div>
+		</div>
+		
+		<div class="switch col s12 m12 l12 xl12 center">
+			<label> Inativo <input type="checkbox" checked="checked" value="${associado?.status}" name="status" id="status" > <span
+				class="lever"></span> Ativo
+			</label>
 		</div>
 		
 		

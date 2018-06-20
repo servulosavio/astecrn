@@ -17,7 +17,7 @@ public class Associado extends Usuario {
 	public String rg;
 	
 	@Temporal(TemporalType.DATE)
-	public Date dt_nascimento;
+	public Date dtNascimento;
 	
 	public String estado_civil;	
 	public String telefone;

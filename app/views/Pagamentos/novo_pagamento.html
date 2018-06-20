@@ -1,0 +1,40 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Cadastro de Pagamento' /}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+
+<form class="col s12" action="@{Pagamentos.salvar}" method="post" enctype="multipart/form-data">
+	<div class="row">
+		
+		<input type="hidden" value="${pagamento?.id}" name="pagamento.id">
+		
+		<div class="input-field col s12 m12 l12 xl6">
+			<i class="material-icons prefix">account_circle</i>
+			<input value="${pagamento?.semestre}" name="pagamento.semestre" id="semestre" type="text" class="validate">
+			<label for="semestre">Semestre</label>
+		</div>
+		
+		<div class="input-field col s12 m6 l12 xl6">
+			<i class="material-icons prefix">event</i>
+			<input value="${pagamento?.vencimento?.format()}" name="pagamento.vencimento" id="vencimento" type="text" class="validate">
+			<label for="vencimento">Data de Vencimento</label>
+		</div>
+				
+		<div class="input-field col s12 m6 l12 xl6">
+			<i class="material-icons prefix">attach_money</i>
+			<input value="${pagamento?.valor}" name="pagamento.valor" id="valor" type="text" class="validate">
+			<label for="valor">Valor</label>
+		</div>
+				
+
+		<div class="input-field col s12" align="center">
+			<button class="btn waves-effect waves-light" type="submit">
+				Salvar <i class="material-icons right">save</i>
+			</button>
+		</div>
+
+	</div>
+</form>

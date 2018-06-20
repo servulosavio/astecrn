@@ -19,6 +19,12 @@ public class Usuario extends Model {
 	@Enumerated(EnumType.STRING)
 	public Status status;
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return login;
+	}
+	
 }
 
 

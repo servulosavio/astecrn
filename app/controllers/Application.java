@@ -14,9 +14,12 @@ public class Application extends Controller {
     }
     
     public static void gerenciador() {
-    	/*String usuarioNome = Associado.class.toString();
-    	render(usuarioNome);*/
-    	render();
+    	long assistenciasCount = Assistencia.count();
+    	long associadosCount = Associado.count();
+//    	String usuario.login(); = Associado.class.toString();
+//    	render(usuarioNome);*
+    	System.out.println(session.get("usuario"));
+    	render(assistenciasCount, associadosCount);
     }
     
     public static void contato() {
