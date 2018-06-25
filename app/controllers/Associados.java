@@ -8,6 +8,9 @@ import enums.Status;
 import models.Assistencia;
 import models.Associado;
 import play.mvc.Controller;
+import play.mvc.With;
+
+@With(Sessao.class)
 
 public class Associados extends Controller {
 	

@@ -19,10 +19,7 @@
 #{get 'moreStyles' /}
 </head>
 
-
 <body>
-
-	
 	
 	<nav class="white" role="navigation" id="barra">
 		<div class="nav-wrapper">
@@ -32,12 +29,9 @@
 			<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 		</div>
 	</nav>
-	
-	
-
-
 
 	<ul id="slide-out" class="side-nav fixed">
+		
 		<li><div class="user-view">
 				<div class="background">
 					<img class="responsive-img center"
@@ -49,25 +43,65 @@
 					class="white-text email">${usuario?.login}</span></a>
 			</div></li>
 		<li><a class="waves-effect" href="@{Application.gerenciador}"><i class="material-icons">home</i>Início</a></li>
-		<li><div class="divider"></div></li>
-		<li><a class="waves-effect" href="@{Associados.novo}"><i class="material-icons">create_new_folder</i>Cadastrar Associados</a></li>
-		<li><a class="waves-effect" href="@{Associados.listar}"><i class="material-icons">format_list_bulleted</i>Listar Associados</a></li>
-		<li><div class="divider"></div></li>
-		<li><a class="waves-effect" href="@{Assistencias.nova_assistencia}"><i class="material-icons">create_new_folder</i>Cadastrar Assistencias</a></li>
-		<li><a class="waves-effect" href="@{Assistencias.listar_assistencias}"><i class="material-icons">format_list_bulleted</i>Listar Assistencias</a></li>
+		<li><a class="dropdown-button waves-effect" href="#!" data-activates="dropdown1"><i class="material-icons">account_circle</i>Associados<i class="material-icons right">arrow_drop_down</i></a></li>
+		<li><a class="dropdown-button waves-effect" href="#!" data-activates="dropdown2"><i class="material-icons">build</i>Assistencias<i class="material-icons right">arrow_drop_down</i></a></li>
+		
+		<li><a class="waves-effect" href="@{Pagamentos.novo_pagamento}"><i class="material-icons">home</i>Novo Pagamento</a></li>
 		<li><div class="divider"></div></li>
 		<li><a class="waves-effect" href="@{Sessao.logout}"><i class="material-icons">cancel</i>Sair</a></li>
+		
+		
+
+
+		<ul id="dropdown1" class="dropdown-content">
+			<li><a class="waves-effect" href="@{Associados.novo}"><i class="material-icons">create_new_folder</i>Cadastrar Associados</a></li>
+			<li><a class="waves-effect" href="@{Associados.listar}"><i class="material-icons">format_list_bulleted</i>Listar Associados</a></li>
+		</ul>
+		
+		<ul id="dropdown2" class="dropdown-content">
+			<li><a class="waves-effect" href="@{Assistencias.nova_assistencia}"><i class="material-icons">create_new_folder</i>Cadastrar Assistencias</a></li>
+			<li><a class="waves-effect" href="@{Assistencias.listar_assistencias}"><i class="material-icons">format_list_bulleted</i>Listar Assistencias</a></li>
+		</ul>
+
+		<!-- <div class="collapsible" data-collapsible="accordion">
+						
+			<li>
+				<div class="collapsible-header">
+					<i class="material-icons">account_circle</i>Associados
+				</div>
+				<div class="collapsible-body">
+					<ul>
+						<li><a class="waves-effect" href="@{Associados.novo}"><i class="material-icons">create_new_folder</i>Cadastrar Associados</a></li>
+						<li><a class="waves-effect" href="@{Associados.listar}"><i class="material-icons">format_list_bulleted</i>Listar Associados</a></li>
+					</ul>
+				</div>
+			</li>
+			
+			<li>
+				<div class="collapsible-header">
+					<i class="material-icons">build</i>Assistências
+				</div>
+				<div class="collapsible-body">
+					<ul>
+						<li><a class="waves-effect" href="@{Assistencias.nova_assistencia}"><i class="material-icons">create_new_folder</i>Cadastrar Assistencias</a></li>
+			<li><a class="waves-effect" href="@{Assistencias.listar_assistencias}"><i class="material-icons">format_list_bulleted</i>Listar Assistencias</a></li>
+					</ul>
+				</div>
+			</li>
+			
+		</div> -->
+		
+		
+
+
+
 	</ul>
-
-
 
 	<main>
 
-	
 	<div class="container">
 		<div class="section">#{doLayout /}</div>
 	</div>
-	
 	
 	</main>
 

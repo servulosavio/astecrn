@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,9 +19,9 @@ public class Pagamento extends Model {
 	@Temporal(TemporalType.DATE)
 	public Date vencimento;
 	
-	public String valor;
+	public double valor;
 	
-	public List<Associado> devedores;
-	public List<Associado> pagos;
+	@ManyToOne
+	public Associado associado;
 	
 }

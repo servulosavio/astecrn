@@ -25,8 +25,19 @@
 				
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">attach_money</i>
-			<input value="${pagamento?.valor}" name="pagamento.valor" id="valor" type="text" class="validate">
+			<input value="" name="pagamento.valor" id="valor" type="text" class="validate">
 			<label for="valor">Valor</label>
+		</div>
+		
+		<div class="input-field col s12 m12 l12 xl6">
+			<i class="material-icons prefix">group</i>
+			<select name="pagamento.associado.id" id="associado" type="text" class="validate">
+		    	<option value="${pagamento.associado}" disabled selected>${pagamento?.associado}...</option>
+		    	#{list items:associados, as:'associado'}
+		    	<option value="${associado.id}" ${(pagamento?.id !=null && pagamento?.associado.id == associado.id)? 'selected':'' }>${associado.nome}</option>
+		    	#{/list}
+		    </select>
+			<label for="associado">Associado</label>
 		</div>
 				
 

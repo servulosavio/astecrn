@@ -4,6 +4,10 @@ import java.util.List;
 
 import models.Assistencia;
 import play.mvc.Controller;
+import play.mvc.With;
+
+
+@With(Sessao.class)
 
 public class Assistencias extends Controller {
 	 

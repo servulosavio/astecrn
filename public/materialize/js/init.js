@@ -26,12 +26,13 @@
         $dtNascimento.mask('00/00/0000', {reverse: false});
         $semestre.mask('0000.0', {reverse: false});
         $vencimento.mask('00/00/0000', {reverse: false});
-        $valor.mask('000.000.000.000,00', {reverse: true});
+        $valor.mask('0000000.00', {reverse: true});
         
         
     });
     
     $('.sidenav').sidenav();
+    $(".dropdown-button").dropdown();
     
     function showToast(message, duration) {
         Materialize.toast(message, duration);
