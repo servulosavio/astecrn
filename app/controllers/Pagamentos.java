@@ -24,7 +24,7 @@ public class Pagamentos extends Controller {
 		
 		
 		pagamento.save();
-		Application.gerenciador();
+		Usuarios.gerenciador();
 	}
 
 }

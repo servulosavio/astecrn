@@ -32,7 +32,7 @@
 		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">group</i>
 			<select name="pagamento.associado.id" id="associado" type="text" class="validate">
-		    	<option value="${pagamento.associado}" disabled selected>${pagamento?.associado}...</option>
+		    	<option value="${pagamento.associados}" disabled selected>${pagamento?.associados}...</option>
 		    	#{list items:associados, as:'associado'}
 		    	<option value="${associado.id}" ${(pagamento?.id !=null && pagamento?.associado.id == associado.id)? 'selected':'' }>${associado.nome}</option>
 		    	#{/list}

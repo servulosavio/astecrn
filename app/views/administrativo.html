@@ -42,11 +42,13 @@
 					class="white-text name">Sérvulo Sávio</span></a> <a href="#!email"><span
 					class="white-text email">${usuario?.login}</span></a>
 			</div></li>
-		<li><a class="waves-effect" href="@{Application.gerenciador}"><i class="material-icons">home</i>Início</a></li>
+		<li><a class="waves-effect" href="@{Usuarios.gerenciador}"><i class="material-icons">home</i>Início</a></li>
 		<li><a class="dropdown-button waves-effect" href="#!" data-activates="dropdown1"><i class="material-icons">account_circle</i>Associados<i class="material-icons right">arrow_drop_down</i></a></li>
 		<li><a class="dropdown-button waves-effect" href="#!" data-activates="dropdown2"><i class="material-icons">build</i>Assistencias<i class="material-icons right">arrow_drop_down</i></a></li>
 		
-		<li><a class="waves-effect" href="@{Pagamentos.novo_pagamento}"><i class="material-icons">home</i>Novo Pagamento</a></li>
+		<li><div class="divider"></div></li>
+		<li><a class="waves-effect" href="@{Pagamentos.novo_pagamento}"><i class="material-icons">attach_money</i>Novo Pagamento</a></li>
+		
 		<li><div class="divider"></div></li>
 		<li><a class="waves-effect" href="@{Sessao.logout}"><i class="material-icons">cancel</i>Sair</a></li>
 		

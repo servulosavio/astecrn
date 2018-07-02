@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -21,7 +22,7 @@ public class Pagamento extends Model {
 	
 	public double valor;
 	
-	@ManyToOne
-	public Associado associado;
+	@OneToMany
+	public List<Associado> associados;
 	
 }
