@@ -26,5 +26,10 @@ public class Pagamentos extends Controller {
 		pagamento.save();
 		Usuarios.gerenciador();
 	}
+	
+	public static void listar_pagamento() {
+		List<Pagamento> pagamentos = Pagamento.findAll();
+		render(pagamentos);
+	}
 
 }

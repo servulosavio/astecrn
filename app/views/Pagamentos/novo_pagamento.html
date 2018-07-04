@@ -13,6 +13,12 @@
 		
 		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">account_circle</i>
+			<input value="${pagamento?.descricao}" name="pagamento.descricao" id="descricao" type="text" class="validate">
+			<label for="descricao">Descricao</label>
+		</div>
+		
+		<div class="input-field col s12 m12 l12 xl6">
+			<i class="material-icons prefix">account_circle</i>
 			<input value="${pagamento?.semestre}" name="pagamento.semestre" id="semestre" type="text" class="validate">
 			<label for="semestre">Semestre</label>
 		</div>
@@ -22,24 +28,28 @@
 			<input value="${pagamento?.vencimento?.format()}" name="pagamento.vencimento" id="vencimento" type="text" class="validate">
 			<label for="vencimento">Data de Vencimento</label>
 		</div>
-				
+						
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">attach_money</i>
 			<input value="" name="pagamento.valor" id="valor" type="text" class="validate">
 			<label for="valor">Valor</label>
 		</div>
 		
+		
 		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">group</i>
-			<select name="pagamento.associado.id" id="associado" type="text" class="validate">
-		    	<option value="${pagamento.associados}" disabled selected>${pagamento?.associados}...</option>
+			<select multiple name="pagamento.associado.id" id="associado" type="text" class="validate">
+		    	<option value="${pagamento.associado}" disabled selected>${pagamento?.associado}...</option>
 		    	#{list items:associados, as:'associado'}
 		    	<option value="${associado.id}" ${(pagamento?.id !=null && pagamento?.associado.id == associado.id)? 'selected':'' }>${associado.nome}</option>
 		    	#{/list}
 		    </select>
 			<label for="associado">Associado</label>
 		</div>
-				
+		
+
+		
+
 
 		<div class="input-field col s12" align="center">
 			<button class="btn waves-effect waves-light" type="submit">

@@ -1,0 +1,46 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Novo Aviso' /}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+
+<form class="col s12" action="@{Avisos.salvar}" method="post" enctype="multipart/form-data">
+	<div class="row">
+		
+		<input type="hidden" value="${aviso?.id}" name="aviso.id">
+		
+
+		<div class="input-field col s12 m12 l12 xl12">
+			<i class="material-icons prefix">account_circle</i>
+			<input value="${aviso?.assunto}" name="aviso.assunto" id="assunto" type="text" class="validate">
+			<label for="assunto">Assunto</label>
+		</div>
+		
+		<div class="input-field col s12 m12 l12 xl12">
+			<i class="material-icons prefix">credit_card</i>
+			<textarea value="${aviso?.mensagem}" name="aviso.mensagem" id="mensagem" type="text" class="validate materialize-textarea"></textarea>
+			<label for="mensagem">Mensagem</label>
+		</div>
+		
+				
+		<div class="file-field input-field col s12 m6 l12 xl6">
+			<div class="waves-effect waves-light btn">
+				<span>Selecionar</span> <input type="file" value="${aviso?.anexo}" name="aviso.anexo">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text"
+					placeholder="Selecione o anexo">
+			</div>
+		</div>
+			
+		
+		<div class="input-field col s12" align="center">
+			<button class="btn waves-effect waves-light" type="submit">
+				Salvar <i class="material-icons right">save</i>
+			</button>
+		</div>
+
+	</div>
+</form>

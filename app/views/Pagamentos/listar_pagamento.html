@@ -1,0 +1,30 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Cadastro de Pagamento' /}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+
+
+<table class="table dataTable" id="dataTable">
+	<thead>
+		<th rowspan="1" colspan="1">Descrição</th>
+		<th rowspan="1" colspan="1">Semestre</th>
+		<th rowspan="1" colspan="1">Valor</th>
+		<th rowspan="1" colspan="1">Associado</th>
+	</thead>
+	<tbody>
+		#{list items:pagamentos, as:'pagamento'}
+		<tr role="row">
+			<td>${pagamento.descricao}</td>
+			<td>${pagamento.semestre}</td>
+			<td>${pagamento.valor}</td>
+			<td>${pagamento.associado}</td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+
+
+

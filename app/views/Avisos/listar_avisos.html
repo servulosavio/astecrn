@@ -1,0 +1,27 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Lista de Avisos' /}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+<table class="table dataTable" id="dataTable">
+	<thead>
+		<th rowspan="1" colspan="1">Assunto</th>
+		<th rowspan="1" colspan="1">Mensagem</th>
+		<th>Ações</th>
+	</thead>
+	<tbody>
+		#{list items:avisos, as:'aviso'}
+		<tr role="row">
+			<td>${aviso.assunto}</td>
+			<td>${aviso.mensagem}</td>
+			<td>
+				<a href="@{Avisos.detalhes_aviso(aviso.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Visualizar"><i class="material-icons">visibility</i></a>
+           		<a href="@{Avisos.editar_aviso(aviso.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">create</i></a>
+           	  	<a href="@{Avisos.remover_aviso(aviso.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
+           	</td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
