@@ -30,8 +30,8 @@ public class Associado extends Usuario {
 	@ManyToOne
 	public Assistencia assistencia;
 	
-	/*@OneToMany
-	public List<Pagamento> pagamentos;*/
+	@OneToMany(mappedBy="associado")
+	public List<Pagamento> pagamentos;
 	
 	@Override
 	public String toString() {

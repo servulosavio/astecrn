@@ -1,9 +1,11 @@
 package models;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,9 +28,10 @@ public class Pagamento extends Model {
 	@Temporal(TemporalType.DATE)
 	public Date recebimento;
 	
-	public double valor;
+	public BigDecimal valor;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="associado_id")
 	public Associado associado;
 	
 }

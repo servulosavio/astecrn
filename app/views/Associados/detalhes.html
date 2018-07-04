@@ -87,3 +87,28 @@
 								
 	</div>
 </form>
+
+
+#{if associado?.pagamentos}
+<table class="table dataTable" id="dataTable">
+	<thead>
+		<th rowspan="1" colspan="1">Descrição</th>
+		<th rowspan="1" colspan="1">Semestre</th>
+		<th rowspan="1" colspan="1">Valor</th>
+		<th rowspan="1" colspan="1">Associado</th>
+	</thead>
+	<tbody>
+		#{list items:associado.pagamentos, as:'pagamento'}
+		<tr role="row">
+			<td>${pagamento.descricao}</td>
+			<td>${pagamento.semestre}</td>
+			<td>${pagamento.valor}</td>
+			<td>${pagamento.associado}</td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+#{/if}
+#{else}
+	<p>O associado não possui nenhum pagamento</p>
+#{/else}
