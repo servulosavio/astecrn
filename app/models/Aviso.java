@@ -11,5 +11,6 @@ public class Aviso extends Model {
 	public String assunto;
 	public String mensagem;
 	public Blob anexo;
+	
 
 }

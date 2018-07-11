@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import enums.SituacaoPagamento;
 import play.db.jpa.Model;
 
 @Entity
@@ -21,6 +22,8 @@ public class Pagamento extends Model {
 	public String descricao;
 	
 	public String semestre;
+	
+	public SituacaoPagamento situacaoPagamento;
 	
 	@Temporal(TemporalType.DATE)
 	public Date vencimento;

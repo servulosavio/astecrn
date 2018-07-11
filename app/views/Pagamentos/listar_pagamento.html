@@ -5,26 +5,183 @@
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 </head>
 
+<div class="row">
+	<div class="col s12 center">
+		<h5>Lista de Pagamentos</h5>
+	</div>
+</div>
+		
+<div class="row">
+	<div class="col s12">
+		<ul class="tabs">
+			<li class="tab col s3"><a class="active" href="#test4">TODOS</a></li>
+			<li class="tab col s3"><a href="#test1">PAGOS</a></li>
+			<li class="tab col s3"><a href="#test2">EM ABERTO</a></li>
+			<li class="tab col s3"><a href="#test3">EM ATRASO</a></li>
+			
+		</ul>
+	</div>
+	
+	<!-- LISTA COM PAGAMENTOS QUITADOS -->
+	<div id="test1" class="col s12">
+		<table class="table dataTable" id="dataTable">
+			<thead>
+				<th rowspan="1" colspan="1">Descrição</th>
+				<th rowspan="1" colspan="1">Semestre</th>
+				<th rowspan="1" colspan="1">Valor</th>
+				<th rowspan="1" colspan="1">Vencimento</th>
+				<th rowspan="1" colspan="1">Recebimento</th>
+				<th rowspan="1" colspan="1">Associado</th>
+				<th rowspan="1" colspan="1">Situação</th>
+				<th></th>
+			</thead>
+			<tbody>
+				#{list items:pagamentos, as:'pagamento'}
+				<tr role="row">				
+					#{if pagamento.situacaoPagamento.toString().equals("QUITADO")}
+					<td class="green-text">${pagamento.descricao}</td>
+					<td class="green-text">${pagamento.semestre}</td>
+					<td class="green-text">${pagamento.valor}</td>
+					<td class="green-text">${pagamento.vencimento.format()}</td>
+					<td class="green-text">${pagamento?.recebimento?.format()}</td>
+					<td class="green-text">${pagamento.associado}</td>
+					<td class="green-text">${pagamento.situacaoPagamento}</td>
+					#{/if}
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+	
+	
+	<!-- LISTA COM PAGAMENTOS EM ABERTO -->
+	<div id="test2" class="col s12">
+		<table class="table dataTable" id="dataTable">
+			<thead>
+				<th rowspan="1" colspan="1">Descrição</th>
+				<th rowspan="1" colspan="1">Semestre</th>
+				<th rowspan="1" colspan="1">Valor</th>
+				<th rowspan="1" colspan="1">Vencimento</th>
+				<th rowspan="1" colspan="1">Recebimento</th>
+				<th rowspan="1" colspan="1">Associado</th>
+				<th rowspan="1" colspan="1">Situação</th>
+				<th></th>
+			</thead>
+			<tbody>
+				#{list items:pagamentos, as:'pagamento'}
+				<tr role="row">			 
+					#{if pagamento.vencimento > new Date() && pagamento.situacaoPagamento.toString().equals("ABERTO")}
+					<td>${pagamento.descricao}</td>
+					<td>${pagamento.semestre}</td>
+					<td>${pagamento.valor}</td>
+					<td>${pagamento.vencimento.format()}</td>
+					<td>${pagamento?.recebimento?.format()}</td>
+					<td>${pagamento.associado}</td>
+					<td>${pagamento.situacaoPagamento}</td>
+					<td>
+						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
+					</td>
+					#{/if}
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	
+	</div>
+	
+	
+	<!-- LISTA COM PAGAMENTOS EM ATRASO-->
+	<div id="test3" class="col s12">
+		<table class="table dataTable" id="dataTable">
+			<thead>
+				<th rowspan="1" colspan="1">Descrição</th>
+				<th rowspan="1" colspan="1">Semestre</th>
+				<th rowspan="1" colspan="1">Valor</th>
+				<th rowspan="1" colspan="1">Vencimento</th>
+				<th rowspan="1" colspan="1">Recebimento</th>
+				<th rowspan="1" colspan="1">Associado</th>
+				<th rowspan="1" colspan="1">Situação</th>
+				<th></th>
+			</thead>
+			<tbody>
+				#{list items:pagamentos, as:'pagamento'}
+				<tr role="row">
+					#{if pagamento.vencimento < new Date() && pagamento.situacaoPagamento.toString().equals("ABERTO")}
+					<td class="red-text">${pagamento.descricao}</td>
+					<td class="red-text">${pagamento.semestre}</td>
+					<td class="red-text">${pagamento.valor}</td>
+					<td class="red-text">${pagamento?.vencimento?.format()}</td>
+					<td class="red-text">${pagamento?.recebimento?.format()}</td>
+					<td class="red-text">${pagamento.associado}</td>
+					<td class="red-text">ATRASADO</td>
+					<td>
+						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
+					</td>
+					#{/if}	
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+	
+	<!-- LISTA COM TODOS OS PAGAMENTOS -->
+	<div id="test4" class="col s12">
+		<table class="table dataTable" id="dataTable">
+			<thead>
+				<th rowspan="1" colspan="1">Descrição</th>
+				<th rowspan="1" colspan="1">Semestre</th>
+				<th rowspan="1" colspan="1">Valor</th>
+				<th rowspan="1" colspan="1">Vencimento</th>
+				<th rowspan="1" colspan="1">Recebimento</th>
+				<th rowspan="1" colspan="1">Associado</th>
+				<th rowspan="1" colspan="1">Situação</th>
+				<th></th>
+			</thead>
+			<tbody>
+				#{list items:pagamentos, as:'pagamento'}
+				<tr role="row">
+					
+					#{if pagamento.vencimento < new Date() && pagamento.situacaoPagamento.toString().equals("ABERTO")}
+					<td class="red-text">${pagamento.descricao}</td>
+					<td class="red-text">${pagamento.semestre}</td>
+					<td class="red-text">${pagamento.valor}</td>
+					<td class="red-text">${pagamento?.vencimento?.format()}</td>
+					<td class="red-text">${pagamento?.recebimento?.format()}</td>
+					<td class="red-text">${pagamento.associado}</td>
+					<td class="red-text">ATRASADO</td>
+					#{/if}
+					
+					#{if pagamento.situacaoPagamento.toString().equals("QUITADO")}
+					<td class="green-text">${pagamento.descricao}</td>
+					<td class="green-text">${pagamento.semestre}</td>
+					<td class="green-text">${pagamento.valor}</td>
+					<td class="green-text">${pagamento.vencimento.format()}</td>
+					<td class="green-text">${pagamento?.recebimento?.format()}</td>
+					<td class="green-text">${pagamento.associado}</td>
+					<td class="green-text">${pagamento.situacaoPagamento}</td>
+					#{/if}
+					 
+					#{if pagamento.vencimento > new Date() && pagamento.situacaoPagamento.toString().equals("ABERTO")}
+					<td>${pagamento.descricao}</td>
+					<td>${pagamento.semestre}</td>
+					<td>${pagamento.valor}</td>
+					<td>${pagamento.vencimento.format()}</td>
+					<td>${pagamento?.recebimento?.format()}</td>
+					<td>${pagamento.associado}</td>
+					<td>${pagamento.situacaoPagamento}</td>
+					#{/if}
+					<td>
+						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
+					</td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</div>
+
+</div>
 
 
-<table class="table dataTable" id="dataTable">
-	<thead>
-		<th rowspan="1" colspan="1">Descrição</th>
-		<th rowspan="1" colspan="1">Semestre</th>
-		<th rowspan="1" colspan="1">Valor</th>
-		<th rowspan="1" colspan="1">Associado</th>
-	</thead>
-	<tbody>
-		#{list items:pagamentos, as:'pagamento'}
-		<tr role="row">
-			<td>${pagamento.descricao}</td>
-			<td>${pagamento.semestre}</td>
-			<td>${pagamento.valor}</td>
-			<td>${pagamento.associado}</td>
-		</tr>
-		#{/list}
-	</tbody>
-</table>
 
 
 

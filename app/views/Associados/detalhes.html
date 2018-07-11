@@ -96,6 +96,7 @@
 		<th rowspan="1" colspan="1">Semestre</th>
 		<th rowspan="1" colspan="1">Valor</th>
 		<th rowspan="1" colspan="1">Associado</th>
+		<th rowspan="1" colspan="1">Situação</th>
 	</thead>
 	<tbody>
 		#{list items:associado.pagamentos, as:'pagamento'}
@@ -104,6 +105,7 @@
 			<td>${pagamento.semestre}</td>
 			<td>${pagamento.valor}</td>
 			<td>${pagamento.associado}</td>
+			<td>${pagamento.situacaoPagamento}</td>
 		</tr>
 		#{/list}
 	</tbody>
