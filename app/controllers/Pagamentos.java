@@ -52,6 +52,7 @@ public class Pagamentos extends Controller {
 		pagamento.situacaoPagamento = SituacaoPagamento.QUITADO;
 		pagamento.recebimento = new Date();	
 		pagamento.save();
+		Caixas.creditar(pagamento.valor, "RECEBIMENTO DE CONTAS: " + pagamento.associado.nome);
 		Pagamentos.listar_pagamento();
 	}
 
