@@ -1,0 +1,42 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Lista de Downloads' /}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+<div class="row">
+	#{if flash.success}
+		<div class="chip waves-effect waves-light green darken-4 white-text col s12 center">${flash.success.raw()}<i class="close material-icons">close</i></div>
+	#{/if}
+	
+	<div class="col s12 center">
+		<h5>Lista de Downloads</h5>
+	</div>
+</div>
+
+<table class="table dataTable" id="dataTable">
+	<thead>
+		<th rowspan="1" colspan="1">Tipo</th>
+		<th rowspan="1" colspan="1">Titulo</th>
+		<th rowspan="1" colspan="1">Marca</th>
+		<th rowspan="1" colspan="1">Modelo</th>
+		<th rowspan="1" colspan="1">Arquivo</th>
+		
+	</thead>
+	<tbody>
+		#{list items:downloads, as:'download'}
+		<tr role="row">
+			<td>${download.tipo}</td>
+			<td>${download.titulo}</td>
+			<td>${download.marca}</td>
+			<td>${download.modelo}</td>
+			<td>
+				#{if download.arquivo?.exists()}
+					<a href="@{Downloads.anexoDownloads(download.id)}" target="_blank"><i class="material-icons">file_download</i></a>
+				#{/if}
+			</td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>

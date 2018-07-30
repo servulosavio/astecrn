@@ -12,22 +12,35 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
 public class Associado extends Usuario {
 	
+	@Required
 	public String nome;
+	
+	@Required
 	public String cpf;
+	
+	@Required
 	public String rg;
 	
+	@Required
 	@Temporal(TemporalType.DATE)
 	public Date dtNascimento;
 	
+	@Required
 	public String estado_civil;	
+	
+	@Required
 	public String telefone;
+	
+	@Required
 	public String cidade;
 	
+	@Required
 	@ManyToOne
 	public Assistencia assistencia;
 	
@@ -40,5 +53,5 @@ public class Associado extends Usuario {
 	}
 	
 	
-
+	 
 }

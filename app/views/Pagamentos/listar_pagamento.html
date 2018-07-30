@@ -6,6 +6,10 @@
 </head>
 
 <div class="row">
+	#{if flash.success}
+		<div class="chip waves-effect waves-light green darken-4 white-text col s12 center">${flash.success.raw()}<i class="close material-icons">close</i></div>
+	#{/if}
+	
 	<div class="col s12 center">
 		<h5>Lista de Pagamentos</h5>
 	</div>
@@ -82,6 +86,21 @@
 						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
 					</td>
 					#{/if}
+					
+					
+					#{if pagamento.vencimento < new Date() && pagamento.situacaoPagamento.toString().equals("ABERTO")}
+					<td class="red-text">${pagamento.descricao}</td>
+					<td class="red-text">${pagamento.semestre}</td>
+					<td class="red-text">${pagamento.valor}</td>
+					<td class="red-text">${pagamento?.vencimento?.format()}</td>
+					<td class="red-text">${pagamento?.recebimento?.format()}</td>
+					<td class="red-text">${pagamento.associado}</td>
+					<td class="red-text">ATRASADO</td>
+					<td>
+						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
+						<a href="@{Pagamentos.enviar_cobranca(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cobrar"><i class="material-icons">report</i></a>
+					</td>
+					#{/if}
 				</tr>
 				#{/list}
 			</tbody>
@@ -116,7 +135,9 @@
 					<td class="red-text">ATRASADO</td>
 					<td>
 						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
+						<a href="@{Pagamentos.enviar_cobranca(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cobrar"><i class="material-icons">report</i></a>
 					</td>
+					
 					#{/if}	
 				</tr>
 				#{/list}
@@ -149,6 +170,10 @@
 					<td class="red-text">${pagamento?.recebimento?.format()}</td>
 					<td class="red-text">${pagamento.associado}</td>
 					<td class="red-text">ATRASADO</td>
+					<td>
+						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
+						<a href="@{Pagamentos.enviar_cobranca(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Cobrar"><i class="material-icons">report</i></a>
+					</td>
 					#{/if}
 					
 					#{if pagamento.situacaoPagamento.toString().equals("QUITADO")}
@@ -169,10 +194,11 @@
 					<td>${pagamento?.recebimento?.format()}</td>
 					<td>${pagamento.associado}</td>
 					<td>${pagamento.situacaoPagamento}</td>
-					#{/if}
 					<td>
 						<a href="@{Pagamentos.receber_pagamento(pagamento.id)}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Receber"><i class="material-icons">monetization_on</i></a>
 					</td>
+					#{/if}
+					
 				</tr>
 				#{/list}
 			</tbody>

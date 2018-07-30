@@ -3,9 +3,14 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.mail.HtmlEmail;
+
 import enums.SituacaoPagamento;
 import models.Associado;
+import models.Contato;
 import models.Pagamento;
+import play.data.validation.Valid;
+import play.libs.Mail;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -38,7 +43,7 @@ public class Pagamentos extends Controller {
 			associado.pagamentos.add(p);
 			associado.save();
 		}
-
+		flash.success("Pagamento Criado com Sucesso!");
 		Pagamentos.listar_pagamento();
 	}
 	
@@ -53,7 +58,32 @@ public class Pagamentos extends Controller {
 		pagamento.recebimento = new Date();	
 		pagamento.save();
 		Caixas.creditar(pagamento.valor, "RECEBIMENTO DE CONTAS: " + pagamento.associado.nome);
+		flash.success("Pagamento Criado com Sucesso!");
 		Pagamentos.listar_pagamento();
+	}
+	
+	public static void enviar_cobranca(Long id) {
+		
+		Pagamento pagamento = Pagamento.findById(id);
+		HtmlEmail emailHtml = new HtmlEmail();
+		try {
+			emailHtml.setFrom("astec@gmail.com");
+			emailHtml.addTo(pagamento.associado.login);
+			emailHtml.setSubject("Pagamento em atraso");
+			emailHtml.setHtmlMsg("Prezado " + pagamento.associado.nome 
+					+ ", informamos que consta em atraso o pagamento '" + pagamento.descricao 
+					+ "' com vencimento em " + pagamento.vencimento 
+					+ " no valor de " + pagamento.valor);
+			Mail.send(emailHtml); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		flash.success("Mensagem Enviada com Sucesso!");
+		listar_pagamento();
+		
+		
+//		email.save();
+//		detalhes(email.id);
 	}
 
 }

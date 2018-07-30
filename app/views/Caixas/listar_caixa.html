@@ -1,0 +1,56 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Livro de Caixa' /}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+<div class="row">
+	#{if flash.success}
+		<div class="chip waves-effect waves-light green darken-4 white-text col s12 center">${flash.success.raw()}<i class="close material-icons">close</i></div>
+	#{/if}
+	
+	<div class="col s12 center">
+		<h5>Livro de Caixa</h5>
+	</div>
+</div>
+		
+<div class="row">
+	
+	<!-- <div class="col s12">
+		<ul class="tabs tabs-fixed-width">
+			<li class="tab col s3"><a class="active" href="#test4">TODOS</a></li>
+			<li class="tab col s3"><a href="#test1">PAGOS</a></li>
+			<li class="tab col s3"><a href="#test2">EM ABERTO</a></li>
+			<li class="tab col s3"><a href="#test3">EM ATRASO</a></li>
+			
+		</ul>
+	</div> -->
+	
+	
+	<!-- LISTA COM TODOS OS PAGAMENTOS -->
+	<div id="test4" class="col s12">
+		<table class="table dataTable" id="dataTable">
+			<thead>
+				<th rowspan="1" colspan="1">Movimentação</th>
+				<th rowspan="1" colspan="1">Descrição</th>
+				<th rowspan="1" colspan="1">Data</th>
+				<th rowspan="1" colspan="1">Valor</th>
+			</thead>
+			<tbody>
+				#{list items:caixas, as:'caixa'}
+				<tr role="row">
+					<td>${caixa.movimentacao}</td>
+					<td>${caixa.descricao}</td>
+					<td>${caixa?.data?.format()}</td>
+					<td>${caixa.valor}</td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+		
+		<h6>Saldo em Caixa: ${saldo}</h6>
+		
+	</div>
+
+</div>

@@ -5,6 +5,17 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 </head>
 
+<div class="row">
+	#{if flash.success}
+		<div class="chip waves-effect waves-light green darken-4 white-text col s12 center">${flash.success.raw()}<i class="close material-icons">close</i></div>
+	#{/if}
+	
+	<div class="col s12 center">
+		<h5>Lista de Assistências</h5>
+	</div>
+</div>
+
+
 <table class="table dataTable" id="dataTable">
 	<thead>
 		<th rowspan="1" colspan="1">Razão Social</th>

@@ -15,6 +15,7 @@ public class Avisos extends Controller {
 	
 	public static void salvar(Aviso aviso) {
 		aviso.save();
+		flash.success("Aviso Salvo com Sucesso!");
 		listar_avisos();
 	}
 	
@@ -37,8 +38,16 @@ public class Avisos extends Controller {
 	public static void remover_aviso(Long id) {
 		Aviso aviso = Aviso.findById(id);
 		aviso.delete();
+		flash.success("Aviso Removido com Sucesso!");
 		listar_avisos();
 	}
 	
+	
+	public  static  void  anexoAvisos(Long  id) {
+	    Aviso aviso = Aviso.findById(id);
+	    notFoundIfNull(aviso);
+	    response.setContentTypeIfNotSet(aviso.anexo.type());
+	    renderBinary(aviso.anexo.get());
+	}
 	
 }

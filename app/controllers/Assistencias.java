@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Assistencia;
+import models.Associado;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -17,6 +18,7 @@ public class Assistencias extends Controller {
 	
 	public static void salvar(Assistencia assistencia) {
 		assistencia.save();
+		flash.success("Cadastro Salvo com Sucesso!");
 		listar_assistencias();
 		
 	}
@@ -38,8 +40,12 @@ public class Assistencias extends Controller {
 	
 	public static void remover(Long id) {
 		Assistencia assistencia = Assistencia.findById(id);
+		for(Associado associado: assistencia.associados) {
+			associado.assistencia = null;
+			associado.save();
+		}	
 		assistencia.delete();
+		flash.success("Cadastro Removido com Sucesso!");
 		listar_assistencias();
 	}
-	
 }

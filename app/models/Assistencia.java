@@ -1,6 +1,9 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 
@@ -23,5 +26,8 @@ public class Assistencia extends Model {
 	public String toString() {
 		return nomeFantasia;
 	}
+	
+	@OneToMany(mappedBy="assistencia")
+	public List<Associado> associados;
 
 }

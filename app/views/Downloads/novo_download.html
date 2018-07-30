@@ -1,0 +1,66 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Novo Download' /}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+<div class="row">
+	<div class="col s12 center">
+		<h5>Novo Arquivo para Download</h5>
+	</div>
+</div>
+
+
+<form class="col s12" action="@{Downloads.salvar}" method="post" enctype="multipart/form-data">
+	<div class="row">
+		
+		<input type="hidden" value="${download?.id}" name="download.id">
+		
+		<div class="input-field col s12 m6 l12 xl6">
+			<i class="material-icons prefix">insert_drive_file</i>
+			<select name="download.tipo" id="tipo" type="text" class="validate">		
+		    	<option value="FIRMWARE">FIRMWARE</option>
+		    	<option value="ESQUEMA">ESQUEMA</option>
+		    </select>
+			<label for="tipo">Tipo de Arquivo</label>
+		</div>
+
+		<div class="input-field col s12 m12 l12 xl12">
+			<i class="material-icons prefix">subtitles</i>
+			<input value="${download?.titulo}" name="download.titulo" id="titulo" type="text" class="validate">
+			<label for="titulo">Titulo</label>
+		</div>
+		
+		<div class="input-field col s12 m12 l12 xl12">
+			<i class="material-icons prefix">business</i>
+			<input value="${download?.marca}" name="download.marca" id="marca" type="text" class="validate">
+			<label for="marca">Marca</label>
+		</div>
+		
+		<div class="input-field col s12 m12 l12 xl12">
+			<i class="material-icons prefix">tablet_mac</i>
+			<input value="${download?.modelo}" name="download.modelo" id="modelo" type="text" class="validate">
+			<label for="modelo">Modelo</label>
+		</div>
+		
+				
+		<div class="file-field input-field col s12 m6 l12 xl6">
+			<div class="waves-effect waves-light btn">
+				<span>Selecionar</span> <input type="file" value="${download?.arquivo}" name="download.arquivo">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text"
+					placeholder="Selecione o Arquivo">
+			</div>
+		</div>
+			
+		
+		<div class="input-field col s12" align="center">
+			<button class="btn waves-effect waves-light" type="submit">
+				Salvar <i class="material-icons right">save</i>
+			</button>
+		</div>
+
+	</div>
+</form>

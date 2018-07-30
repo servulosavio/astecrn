@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.eclipse.jdt.internal.codeassist.impl.AssistCompilationUnit;
 
 import enums.Status;
@@ -19,8 +21,26 @@ public class Associados extends Controller {
 		render(associado, assistencias);
 	}
 	
-	public static void salvar(Associado associado) {
+	public static void salvar(@Valid Associado associado) {
 		System.out.println(params.get("excluirFoto"));
+		System.out.println(validation.hasErrors());
+		validation.required(associado.nome);
+		validation.required(associado.cidade);
+		validation.required(associado.cpf);
+		validation.required(associado.rg);
+		validation.required(associado.dtNascimento);
+		validation.required(associado.estado_civil);
+		validation.required(associado.telefone);
+		validation.required(associado.cidade);
+		
+		
+		if(validation.hasErrors()) {
+			
+			validation.keep();
+			params.flash();
+			novo(associado);
+		}
+		
 		if(params.get("excluirFoto") != null) {
 			associado.foto.getFile().delete();
 		}
@@ -30,6 +50,7 @@ public class Associados extends Controller {
 			associado.status = Status.INATIVO;
 		}
 		associado.save();
+		flash.success("Cadastro Salvo com Sucesso!");
 		listar();
 		
 	}
@@ -53,7 +74,9 @@ public class Associados extends Controller {
 	
 	public static void remover(Long id) {
 		Associado associado = Associado.findById(id);
-		associado.delete();
+		associado.status = Status.INATIVO;
+		associado.save();
+		flash.success("O Associado foi Inativado com Sucesso!");
 		listar();
 	}
 	
@@ -67,6 +90,13 @@ public class Associados extends Controller {
 	    notFoundIfNull(associado);
 	    response.setContentTypeIfNotSet(associado.foto.type());
 	    renderBinary(associado.foto.get());
+	}
+	
+	public  static  void  documentosAssociados(Long  id) {
+	    Associado associado = Associado.findById(id);
+	    notFoundIfNull(associado);
+	    response.setContentTypeIfNotSet(associado.documentos.type());
+	    renderBinary(associado.documentos.get());
 	}
 	
 	

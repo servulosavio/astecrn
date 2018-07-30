@@ -1,0 +1,48 @@
+#{extends 'administrativo.html' /} 
+#{set title:'Novo Lancamento' /}
+
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+</head>
+
+<div class="row">
+	<div class="col s12 center">
+		<h5>Lançamento de Caixa</h5>
+	</div>
+</div>
+
+<div class="row">
+	
+	<form class="col s12" action="@{Caixas.lancamento}" method="post" enctype="multipart/form-data">
+		<div class="row">
+			
+			<input type="hidden" value="${caixa?.id}" name="caixa.id">
+			
+			<div class="input-field col s12 m6 l12 xl6">
+				<i class="material-icons prefix">group</i>
+				<select name="caixa.movimentacao" id="movimentacao" type="text" class="validate">		
+			    	<option value="ENTRADA">ENTRADA</option>
+			    	<option value="SAIDA">SAÍDA</option>
+			    </select>
+				<label for="movimentacao">Movimentação</label>
+			</div>
+			
+			<div class="input-field col s12 m12 l12 xl12">
+				<i class="material-icons prefix">account_circle</i>
+				<input value="${caixa?.descricao}" name="caixa.descricao" id="descricao" type="text" class="validate">
+				<label for="descricao">Descrição</label>
+			</div>
+			
+			<div class="input-field col s12 m12 l12 xl12">
+				<i class="material-icons prefix">credit_card</i>
+				<input value="${caixa?.valor}" name="caixa.valor" id="valor" type="text" class="validate">
+				<label for="valor">Valor</label>
+			</div>
+						
+			<div class="input-field col s12" align="center">
+				<button class="btn waves-effect waves-light" type="submit">
+					Salvar <i class="material-icons right">save</i>
+				</button>
+			</div>
+		</div>
+	</form>

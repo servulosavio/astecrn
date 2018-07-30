@@ -46,5 +46,6 @@ public class Contatos extends Controller {
 		List<Contato> emails = Contato.findAll();
 		render(emails);
 	}
+	
 
 }

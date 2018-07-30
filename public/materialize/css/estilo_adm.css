@@ -18,3 +18,8 @@
 	margin-bottom: 5px;
 }
 
+.no-padding {
+	padding: 0!important;
+	margin-left: -12px;
+	
+}

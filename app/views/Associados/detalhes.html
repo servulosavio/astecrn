@@ -5,6 +5,12 @@
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 </head>
 
+<div class="row">
+	<div class="col s12 center">
+		<h5>Ficha de Associado</h5>
+	</div>
+</div>
+
 
 <form class="col s12">
 	<div class="row">
@@ -12,6 +18,12 @@
 		<div class="col s12 center">
 			#{if associado.foto?.exists()}
 				<img class=" circle" height="150px" width="150px" src="@{Associados.fotoAssociados(associado.id)}"><br>
+			#{/if}
+		</div>
+		
+		<div class="col s12 center">
+			#{if associado.documentos?.exists()}
+				<a href="@{Associados.documentosAssociados(associado.id)}" target="_blank">Visualizar Documentos</a>
 			#{/if}
 		</div>
 		
@@ -80,13 +92,16 @@
 			<label for="status">Usuario ${associado?.status}</label>
 		</div>
 		
-		<div class="input-field col s12" align="center">
-			<a href="@{Associados.editar(associado.id)}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">create</i></a>
-           	<a href="@{Associados.remover(associado.id)}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
-		</div>
+		
 								
 	</div>
 </form>
+
+<div class="row">
+	<div class="col s12 center">
+		<h5>Histórico de Pagamentos</h5>
+	</div>
+</div>
 
 
 #{if associado?.pagamentos}
@@ -114,3 +129,8 @@
 #{else}
 	<p>O associado não possui nenhum pagamento</p>
 #{/else}
+
+<div class="input-field col s12" align="center">
+	<a href="@{Associados.editar(associado.id)}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">create</i></a>
+   	<a href="@{Associados.remover(associado.id)}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inativar"><i class="material-icons">delete</i></a>
+</div>

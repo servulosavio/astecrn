@@ -26,6 +26,8 @@ public class Sessao extends Controller {
 			Application.login();
 		}else {
 			session.put("usuario", usuario);
+			/*session.put("nome", usuario.);*/
+			session.put("login", usuario.login);
 			Usuarios.gerenciador();
 		}
 	}
