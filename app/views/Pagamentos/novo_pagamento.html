@@ -39,48 +39,41 @@
 			<i class="material-icons prefix">account_circle</i>
 			<input value="${pagamento?.descricao}" name="pagamento.descricao" id="descricao" type="text" class="validate">
 			<label for="descricao">Descricao</label>
+			#{ifError 'pagamento.descricao'}<div class="erro">#{error 'pagamento.descricao' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">account_circle</i>
 			<input value="${pagamento?.semestre}" name="pagamento.semestre" id="semestre" type="text" class="validate">
 			<label for="semestre">Semestre</label>
+			#{ifError 'pagamento.semestre'}<div class="erro">#{error 'pagamento.semestre' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">event</i>
 			<input value="${pagamento?.vencimento?.format()}" name="pagamento.vencimento" id="vencimento" type="text" class="validate">
 			<label for="vencimento">Data de Vencimento</label>
+			#{ifError 'pagamento.vencimento'}<div class="erro">#{error 'pagamento.vencimento' /}</div>#{/ifError}
 		</div>
 						
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">attach_money</i>
 			<input value="" name="pagamento.valor" id="valor" type="text" class="validate">
 			<label for="valor">Valor</label>
+			#{ifError 'pagamento.valor'}<div class="erro">#{error 'pagamento.valor' /}</div>#{/ifError}
 		</div>
-		
-	
-		*{
-		<div class="input-field col s12 m12 l12 xl6">
-			<i class="material-icons prefix">group</i>
-			<select multiple name="pagamento.associado.id" id="associado" type="text" class="validate">
-		    	<option value="${pagamento.associado}" disabled selected>${pagamento?.associado}...</option>
-		    	#{list items:associados, as:'associado'}
-		    	<option value="${associado.id}" ${(pagamento?.id !=null && pagamento?.associado.id == associado.id)? 'selected':'' }>${associado.nome}</option>
-		    	#{/list}
-		    </select>
-			<label for="associado">Associado</label>
-		</div>
-		}*
-		
-		
 		
 		
 		<ul class="col s12 m12 l12 xl12">
-
+		
+		<!-- PRECISO EXIBIR A MENSAGEM DE ERRO SE NÃO TIVER PELO MENOS UM ASSOCIADO SELECIONADO -->
+		#{ifError 'pagamento.associado.id'}<div class="erro">#{error 'pagamento.associado.id' /}</div>#{/ifError}
+		
+			
 			<p>
 				<input type="checkbox" id="test5" onclick="marcarTodos(this.checked);" />
 				<label id="acao" for="test5">Marcar Todos</label>
+				
 			</p>
 	
 			#{if associados != null}
@@ -88,11 +81,13 @@
 	
 			<p>
 				<input ${(pagamento?.id !=null && pagamento?.associado.id == associado.id)? 'checked': '' } type="checkbox" name="associdadoIDs" value="${associado.id}" id="${associado.id}" />
-				<label for="${associado.id}">${associado.nome}</label>
+				<label for="${associado.id}">${associado.nome}</label>	
+						
 			</p>
 	 
 				#{/list}
 			#{/if}
+					
 		</ul>
 
 		

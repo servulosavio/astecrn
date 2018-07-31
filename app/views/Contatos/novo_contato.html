@@ -35,10 +35,8 @@
             <i class="material-icons prefix">mail</i>
             <input #{ifError 'email.para'} is-invalid#{/ifError}" 
 			   id="de" type="text" value="${flash['email.para']}" name="email.para">
-			   #{ifError 'email.para'}
-        	   <div class="col s12 center">#{error 'email.para' /}</div>  	   		 
-        	   #{/ifError}
             <label for="de">E-mail</label>
+            #{ifError 'email.para'}<div class="erro">#{error 'email.para' /}</div>#{/ifError}
           </div>
           
           
@@ -46,10 +44,8 @@
             <i class="material-icons prefix">account_circle</i>
             <input #{ifError 'email.assunto'} is-invalid#{/ifError}" 
 			   id="assunto" type="text" value="${flash['email.assunto']}" name="email.assunto">
-			   #{ifError 'email.assunto'}
-        	   <div class="invalid-feedback">#{error 'email.assunto' /}</div>  	   		 
-        	   #{/ifError}
             <label for="assunto">Assunto</label>
+            #{ifError 'email.assunto'}<div class="erro">#{error 'email.assunto' /}</div>#{/ifError}
           </div>
 
           <div class="input-field col s12">
@@ -59,12 +55,8 @@
             
             <textarea name="email.mensagem" class="form-control #{ifError 'email.mensagem'} is-invalid#{/ifError}" 
 			  			rows="5" id="mensagem">${flash['email.mensagem']}</textarea>
-			  #{ifError 'email.mensagem'}
-        	  <div class="invalid-feedback">#{error 'email.mensagem' /}</div>  	   		 
-        	  #{/ifError}
-            
-            
-            <label for="mensagem">Mensagem</label>
+			 <label for="mensagem">Mensagem</label>
+            #{ifError 'email.mensagem'}<div class="erro">#{error 'email.mensagem' /}</div>#{/ifError}
           </div>
 
           <div class="input-field col s12" align="center">

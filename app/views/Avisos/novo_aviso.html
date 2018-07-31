@@ -22,12 +22,14 @@
 			<i class="material-icons prefix">account_circle</i>
 			<input value="${aviso?.assunto}" name="aviso.assunto" id="assunto" type="text" class="validate">
 			<label for="assunto">Assunto</label>
+			#{ifError 'aviso.assunto'}<div class="erro">#{error 'aviso.assunto' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m12 l12 xl12">
 			<i class="material-icons prefix">credit_card</i>
 			<textarea value="${aviso?.mensagem}" name="aviso.mensagem" id="mensagem" type="text" class="validate materialize-textarea"></textarea>
 			<label for="mensagem">Mensagem</label>
+			#{ifError 'aviso.mensagem'}<div class="erro">#{error 'aviso.mensagem' /}</div>#{/ifError}
 		</div>
 		
 				

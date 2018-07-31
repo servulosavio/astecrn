@@ -1,5 +1,5 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
-validation.required = O campo %s preenchimento obrigatório
+validation.required = Preenchimento obrigatório
 validation.email = Informe um e-mail válido

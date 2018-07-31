@@ -25,18 +25,21 @@
 			    	<option value="SAIDA">SAÍDA</option>
 			    </select>
 				<label for="movimentacao">Movimentação</label>
+				#{ifError 'caixa.movimentacao'}<div class="erro">#{error 'caixa.movimentacao' /}</div>#{/ifError}
 			</div>
 			
 			<div class="input-field col s12 m12 l12 xl12">
 				<i class="material-icons prefix">account_circle</i>
 				<input value="${caixa?.descricao}" name="caixa.descricao" id="descricao" type="text" class="validate">
 				<label for="descricao">Descrição</label>
+				#{ifError 'caixa.descricao'}<div class="erro">#{error 'caixa.descricao' /}</div>#{/ifError}
 			</div>
 			
 			<div class="input-field col s12 m12 l12 xl12">
 				<i class="material-icons prefix">credit_card</i>
 				<input value="${caixa?.valor}" name="caixa.valor" id="valor" type="text" class="validate">
 				<label for="valor">Valor</label>
+				#{ifError 'caixa.valor'}<div class="erro">#{error 'caixa.valor' /}</div>#{/ifError}
 			</div>
 						
 			<div class="input-field col s12" align="center">

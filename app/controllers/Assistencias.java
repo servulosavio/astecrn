@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.Assistencia;
 import models.Associado;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -16,7 +17,14 @@ public class Assistencias extends Controller {
 		render(assistencia);
 	}
 	
-	public static void salvar(Assistencia assistencia) {
+	public static void salvar(@Valid Assistencia assistencia) {
+		
+		if(validation.hasErrors()) {
+			validation.keep();
+			params.flash();
+			nova_assistencia(assistencia);
+		}
+		
 		assistencia.save();
 		flash.success("Cadastro Salvo com Sucesso!");
 		listar_assistencias();

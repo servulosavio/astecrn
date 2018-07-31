@@ -2,13 +2,14 @@ package controllers;
 
 import java.util.List;
 
-import javax.validation.Valid;
+
 
 import org.eclipse.jdt.internal.codeassist.impl.AssistCompilationUnit;
 
 import enums.Status;
 import models.Assistencia;
 import models.Associado;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -24,18 +25,9 @@ public class Associados extends Controller {
 	public static void salvar(@Valid Associado associado) {
 		System.out.println(params.get("excluirFoto"));
 		System.out.println(validation.hasErrors());
-		validation.required(associado.nome);
-		validation.required(associado.cidade);
-		validation.required(associado.cpf);
-		validation.required(associado.rg);
-		validation.required(associado.dtNascimento);
-		validation.required(associado.estado_civil);
-		validation.required(associado.telefone);
-		validation.required(associado.cidade);
-		
+			
 		
 		if(validation.hasErrors()) {
-			
 			validation.keep();
 			params.flash();
 			novo(associado);
@@ -72,11 +64,19 @@ public class Associados extends Controller {
 		render(associados, assistencias);
 	}
 	
-	public static void remover(Long id) {
+	public static void inativar(Long id) {
 		Associado associado = Associado.findById(id);
 		associado.status = Status.INATIVO;
 		associado.save();
 		flash.success("O Associado foi Inativado com Sucesso!");
+		listar();
+	}
+	
+	public static void ativar(Long id) {
+		Associado associado = Associado.findById(id);
+		associado.status = Status.ATIVO;
+		associado.save();
+		flash.success("O Associado foi Ativado com Sucesso!");
 		listar();
 	}
 	

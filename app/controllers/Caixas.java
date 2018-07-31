@@ -13,6 +13,7 @@ import enums.Movimentacao;
 import jdk.nashorn.internal.objects.annotations.Where;
 import models.Caixa;
 import models.Pagamento;
+import play.data.validation.Valid;
 import play.db.jpa.JPA;
 import play.mvc.Controller;
 
@@ -28,7 +29,13 @@ public class Caixas extends Controller {
 		render();
 	}
 	
-	public static void lancamento(Caixa caixa) {
+	public static void lancamento(@Valid Caixa caixa) {
+		
+		if(validation.hasErrors()) {
+			validation.keep();
+			params.flash();
+			lancamento_caixa();
+		}
 		
 		System.out.println(caixa.movimentacao.toString());
 		if (caixa.movimentacao.equals(Movimentacao.ENTRADA)){

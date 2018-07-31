@@ -19,38 +19,44 @@
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">account_circle</i>
-			<input value="${assistencia?.razaoSocial}" name="assistencia.razaoSocial" id="razaoSocial" type="text" class="validate">
+			<input value="${assistencia == null ? flash['assistencia.razaoSocial'] : assistencia.razaoSocial}" name="assistencia.razaoSocial" id="razaoSocial" type="text" class="validate">
 			<label for="razaoSocial">Razão Social</label>
+			#{ifError 'assistencia.razaoSocial'}<div class="erro">#{error 'assistencia.razaoSocial' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">account_circle</i>
 			<input value="${assistencia?.nomeFantasia}" name="assistencia.nomeFantasia" id="nome" type="text" class="validate">
 			<label for="nomeFantasia">Nome Fantasia</label>
+			#{ifError 'assistencia.nomeFantasia'}<div class="erro">#{error 'assistencia.nomeFantasia' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">credit_card</i>
 			<input value="${assistencia?.cnpj}" name="assistencia.cnpj" id="cnpj" type="text" class="validate">
 			<label for="cnpj">CNPJ</label>
+			#{ifError 'assistencia.cnpj'}<div class="erro">#{error 'assistencia.cnpj' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">call</i>
 			<input value="${assistencia?.telefone}" name="assistencia.telefone" id="telefone" type="text" class="validate">
 			<label for="telefone">Telefone</label>
+			#{ifError 'assistencia.telefone'}<div class="erro">#{error 'assistencia.telefone' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${assistencia?.rua}" name="assistencia.rua" id="rua" type="text" class="validate">
 			<label for="rua">Rua</label>
+			#{ifError 'assistencia.rua'}<div class="erro">#{error 'assistencia.rua' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s2">
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${assistencia?.numero}" name="assistencia.numero" id="numero" type="text" class="validate">
 			<label for="numero">Nº</label>
+			#{ifError 'assistencia.numero'}<div class="erro">#{error 'assistencia.numero' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s4">
@@ -63,24 +69,28 @@
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${assistencia?.bairro}" name="assistencia.bairro" id="bairro" type="text" class="validate">
 			<label for="bairro">Bairro</label>
+			#{ifError 'assistencia.bairro'}<div class="erro">#{error 'assistencia.bairro' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${assistencia?.cep}" name="assistencia.cep" id="cep" type="text" class="validate">
 			<label for="cep">CEP</label>
+			#{ifError 'assistencia.cep'}<div class="erro">#{error 'assistencia.cep' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${assistencia?.cidade}" name="assistencia.cidade" id="cidade" type="text" class="validate">
 			<label for="cidade">Cidade</label>
+			#{ifError 'assistencia.cidade'}<div class="erro">#{error 'assistencia.cidade' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s6">
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${assistencia?.estado}" name="assistencia.estado" id="estado" type="text" class="validate">
 			<label for="estado">Estado</label>
+			#{ifError 'assistencia.estado'}<div class="erro">#{error 'assistencia.estado' /}</div>#{/ifError}
 		</div>
 		
 		

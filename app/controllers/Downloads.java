@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.Aviso;
 import models.Download;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 public class Downloads extends Controller {
@@ -12,7 +13,14 @@ public class Downloads extends Controller {
 		render();
 	}
 	
-	public static void salvar(Download download) {
+	public static void salvar(@Valid Download download) {
+		
+		if(validation.hasErrors()) {
+			validation.keep();
+			params.flash();
+			novo_download();
+		}
+		
 		download.save();
 		flash.success("Aviso Salvo com Sucesso!");
 		listar_downloads();

@@ -10,12 +10,6 @@
 	<div class="col s12 center">
 		<h5>Cadastro de Associados</h5>
 	</div>
-	
-	#{ifErrors}
-#{errors}
-<div class="chip waves-effect waves-light green darken-4 white-text col s12 center">${error}<i class="close material-icons">close</i></div>
-#{/errors}
-#{/ifErrors}
 </div>
 
 
@@ -36,26 +30,31 @@
 
 		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">account_circle</i>
-			<input value="${associado?.nome}" name="associado.nome" id="nome" type="text" class="validate">
-			<label for="nome">Nome</label>
+			<input value="${associado == null ? flash['associado.nome'] : associado.nome}" name="associado.nome" id="nome" type="text" class="validate">
+			<label for="nome"  data-error=""  >Nome</label>
+			#{ifError 'associado.nome'}<div class="erro">#{error 'associado.nome' /}</div>#{/ifError}
 		</div>
+		
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">credit_card</i>
 			<input value="${associado?.cpf}" name="associado.cpf" id="cpf" type="text" class="validate">
 			<label for="cpf">CPF</label>
+			#{ifError 'associado.cpf'}<div class="erro">#{error 'associado.cpf' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">subtitles</i>
 			<input value="${associado?.rg}" name="associado.rg" id="rg" type="text" class="validate">
 			<label for="rg">RG</label>
+			#{ifError 'associado.rg'}<div class="erro">#{error 'associado.rg' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">event</i>
 			<input value="${associado?.dtNascimento?.format()}" name="associado.dtNascimento" id="dtNascimento" type="text" class="validate">
 			<label for="dtNascimento">Data de Nascimento</label>
+			#{ifError 'associado.dtNascimento'}<div class="erro">#{error 'associado.dtNascimento' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
@@ -68,18 +67,21 @@
 		    	<option value="Viúvo">Viúvo(a)</option>
 		    </select>
 			<label for="estado_civil">Estado Civíl</label>
+			#{ifError 'associado.estado_civil'}<div class="erro">#{error 'associado.estado_civil' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">call</i>
 			<input value="${associado?.telefone}" name="associado.telefone" id="telefone" type="text" class="validate">
 			<label for="telefone">Telefone</label>
+			#{ifError 'associado.telefone'}<div class="erro">#{error 'associado.telefone' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
 			<input value="${associado?.cidade}" name="associado.cidade" id="cidade" type="text" class="validate">
 			<label for="cidade">Cidade</label>
+			#{ifError 'associado.cidade'}<div class="erro">#{error 'associado.cidade' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m12 l12 xl6">
@@ -91,18 +93,21 @@
 		    	#{/list}
 		    </select>
 			<label for="assistencia">Assistencia</label>
+			#{ifError 'associado.assistencia'}<div class="erro">#{error 'associado.assistencia' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
 			<input value="${associado?.login}" name="associado.login" id="login" type="text" class="validate">
 			<label for="login">Login</label>
+			#{ifError 'associado.login'}<div class="erro">#{error 'associado.login' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
 			<input value="${associado?.senha}" name="associado.senha" id="senha" type="password" class="validate">
 			<label for="senha">Senha</label>
+			#{ifError 'associado.senha'}<div class="erro">#{error 'associado.senha' /}</div>#{/ifError}
 		</div>
 
 		

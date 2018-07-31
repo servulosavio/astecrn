@@ -24,7 +24,16 @@ public class Pagamentos extends Controller {
 		render(associados, pagamento);
 	}
 	
-	public static void salvar(Pagamento pagamento,List<String> associdadoIDs) {
+	public static void salvar(@Valid Pagamento pagamento,List<String> associdadoIDs) {
+		
+		System.out.println(validation.hasErrors());
+		
+		if(validation.hasErrors()) {
+			validation.keep();
+			params.flash();
+			novo_pagamento(pagamento);
+		}
+		
 		String IDs = "-1";
 		if(associdadoIDs != null)
 			IDs = String.join(", ", associdadoIDs);

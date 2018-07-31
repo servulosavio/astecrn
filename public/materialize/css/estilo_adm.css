@@ -23,3 +23,15 @@
 	margin-left: -12px;
 	
 }
+
+.erro {
+	content: '';
+  position: absolute;
+  background-color: inherit;
+  left: 55px;
+  bottom: 0;
+  will-change: left, right;
+  font-size: 10px;
+  color: red;
+  
+}

@@ -5,6 +5,7 @@ import java.util.List;
 import models.Assistencia;
 import models.Associado;
 import models.Aviso;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 public class Avisos extends Controller {
@@ -13,7 +14,14 @@ public class Avisos extends Controller {
 		render();
 	}
 	
-	public static void salvar(Aviso aviso) {
+	public static void salvar(@Valid Aviso aviso) {
+		
+		if(validation.hasErrors()) {
+			validation.keep();
+			params.flash();
+			novo_aviso();
+		}
+		
 		aviso.save();
 		flash.success("Aviso Salvo com Sucesso!");
 		listar_avisos();
