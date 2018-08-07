@@ -23,7 +23,7 @@ public class Caixa extends Model {
 	@Required
 	public String descricao;
 	
-	@Required
+	
 	@Temporal(TemporalType.DATE)
 	public Date data;
 	

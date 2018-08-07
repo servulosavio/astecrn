@@ -17,12 +17,14 @@
 			</thead>
 			<tbody>
 				#{list items:associados, as:'associado'}
+				#{if associado.status.toString().equals("ATIVO")}
 				<tr role="row">
 					<td>${associado.nome}</td>
 					<td>${associado.telefone}</td>
 					<td>${associado.cidade}</td>
 					<td>${associado.assistencia}</td>
 				</tr>
+				#{/if}
 				#{/list}
 			</tbody>
 		</table>

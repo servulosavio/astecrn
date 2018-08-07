@@ -8,7 +8,7 @@
   </package>  
   <class id="2" language="java" name="models.Assistencia" project="astecrn" file="/astecrn/app/models/Assistencia.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="373" y="529"/>    
+    <position height="-1" width="-1" x="375" y="528"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -62,7 +62,7 @@
   </class>  
   <class id="8" language="java" name="models.Pagamento" project="astecrn" file="/astecrn/app/models/Pagamento.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1002" y="530"/>    
+    <position height="-1" width="-1" x="1004" y="527"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -71,7 +71,7 @@
   </class>  
   <class id="9" language="java" name="models.Usuario" project="astecrn" file="/astecrn/app/models/Usuario.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="666" y="265"/>    
+    <position height="-1" width="-1" x="661" y="249"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -79,46 +79,60 @@
     </display>  
   </class>  
   <association id="10">    
-    <bendpoint x="518" y="604"/>    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="11" name="associados"/>      
-      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="13">    
     <bendpoint x="806" y="603"/>    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="14" name="associado"/>      
-      <multiplicity id="15" minimum="0" maximum="1">        
+      <attribute id="11" name="associado">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="12" minimum="0" maximum="1">        
         <position height="18" width="27" x="742" y="581"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="16">    
-    <bendpoint x="801" y="528"/>    
+  <association id="13">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="17" name="pagamentos"/>      
-      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="19">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="9"/>  
-  </generalization>  
-  <association id="20">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="21" name="assistencia"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+      <attribute id="14" name="assistencia">        
+        <position height="0" width="0" x="2" y="-1"/>      
+      </attribute>      
+      <multiplicity id="15" minimum="0" maximum="1">        
+        <position height="0" width="0" x="2" y="-1"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="16">    
+    <bendpoint x="801" y="528"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="17" name="pagamentos">        
+        <position height="0" width="0" x="2" y="-3"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="2" y="-3"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="19">    
+    <bendpoint x="518" y="604"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="20" name="associados">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

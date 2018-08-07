@@ -42,6 +42,7 @@ public class Pagamento extends Model {
 	public BigDecimal valor;
 	
 	//PRECISO REQUERER AO MENOS UM ASSOCIADO
+	
 	@ManyToOne
 	@JoinColumn(name="associado_id")
 	public Associado associado;

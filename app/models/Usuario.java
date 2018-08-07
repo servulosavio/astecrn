@@ -5,12 +5,16 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import enums.Status;
+import enums.TipoDownload;
+import enums.TipoUsuario;
 import play.data.validation.Required;
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
 
 @Entity
 public class Usuario extends Model {
+	
+	
 	
 	@Required
 	public String login;
@@ -22,6 +26,8 @@ public class Usuario extends Model {
 	
 	@Enumerated(EnumType.STRING)
 	public Status status;
+	
+	public TipoUsuario tipoUsuario;
 	
 	@Override
 	public String toString() {

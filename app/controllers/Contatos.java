@@ -9,6 +9,9 @@ import models.Contato;
 import play.data.validation.Valid;
 import play.libs.Mail;
 import play.mvc.Controller;
+import play.mvc.With;
+
+@With(Sessao.class)
 
 public class Contatos extends Controller {
 	

@@ -28,6 +28,10 @@ public class Pagamentos extends Controller {
 		
 		System.out.println(validation.hasErrors());
 		
+		if (associdadoIDs == null) {
+			validation.addError("associadoIDs", "Selecione os associados que realizarão este pagamento");			
+		}
+		
 		if(validation.hasErrors()) {
 			validation.keep();
 			params.flash();
@@ -57,7 +61,7 @@ public class Pagamentos extends Controller {
 	}
 	
 	public static void listar_pagamento() {
-		List<Pagamento> pagamentos = Pagamento.findAll();
+		List<Pagamento> pagamentos = Pagamento.find("order by vencimento").fetch();
 		render(pagamentos);
 	}
 	

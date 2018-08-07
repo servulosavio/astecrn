@@ -6,6 +6,9 @@ import models.Aviso;
 import models.Download;
 import play.data.validation.Valid;
 import play.mvc.Controller;
+import play.mvc.With;
+
+@With(Sessao.class)
 
 public class Downloads extends Controller {
 	

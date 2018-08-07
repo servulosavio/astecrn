@@ -20,7 +20,7 @@ public class Application extends Controller {
     }
     
     public static void associados() {
-		List<Associado> associados = Associado.findAll();
+		List<Associado> associados = Associado.find("order by cidade").fetch();
 		render(associados);
 	}
     

@@ -7,6 +7,9 @@ import models.Associado;
 import models.Aviso;
 import play.data.validation.Valid;
 import play.mvc.Controller;
+import play.mvc.With;
+
+@With(Sessao.class)
 
 public class Avisos extends Controller {
 	

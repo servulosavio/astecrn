@@ -16,6 +16,9 @@ import models.Pagamento;
 import play.data.validation.Valid;
 import play.db.jpa.JPA;
 import play.mvc.Controller;
+import play.mvc.With;
+
+@With(Sessao.class)
 
 public class Caixas extends Controller {
 	

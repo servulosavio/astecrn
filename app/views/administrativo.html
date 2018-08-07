@@ -37,52 +37,17 @@
 					<img class="responsive-img center"
 						src="@{'/public/materialize/img/img2.jpg'}">
 				</div>
-				<a href="#!user"><img class="circle"
-					src="@{'/public/materialize/img/user.png'}"></a> <a href="#!name"><span
-					class="white-text name">${session.get("nome")}</span></a> <a href="#!email"><span
-					class="white-text email">${session.get("login")}</span></a>
+				
+				
+				<a href="#!user"><img class="circle" src="@{'/public/materialize/img/user.png'}"></a>
+				
+				<a href="#!name"><span class="white-text name">${session.get("nome")}</span></a>
+				<a href="#!email"><span	class="white-text email">${session.get("login")}</span></a>
 			</div>
 		</li>
 		
 		<li class="no-padding"><a class="waves-effect" href="@{Usuarios.gerenciador}"><i class="material-icons">home</i>Início</a></li>
 		
-		<!-- 
-		<li><a class="dropdown-button waves-effect" href="#!" data-activates="dropdown1"><i class="material-icons">account_circle</i>Associados<i class="material-icons right">arrow_drop_down</i></a></li>
-		<li><a class="dropdown-button waves-effect" href="#!" data-activates="dropdown2"><i class="material-icons">build</i>Assistencias<i class="material-icons right">arrow_drop_down</i></a></li>
-		
-		<ul id="dropdown1" class="dropdown-content">
-			<li><a class="waves-effect" href="@{Associados.novo}"><i class="material-icons">create_new_folder</i>Cadastrar Associados</a></li>
-			<li><a class="waves-effect" href="@{Associados.listar}"><i class="material-icons">format_list_bulleted</i>Listar Associados</a></li>
-		</ul>
-		
-		<ul id="dropdown2" class="dropdown-content">
-			<li><a class="waves-effect" href="@{Assistencias.nova_assistencia}"><i class="material-icons">create_new_folder</i>Cadastrar Assistencias</a></li>
-			<li><a class="waves-effect" href="@{Assistencias.listar_assistencias}"><i class="material-icons">format_list_bulleted</i>Listar Assistencias</a></li>
-		</ul>
-		
-		
-		<li><div class="divider"></div></li>
-		<li><a class="waves-effect" href="@{Pagamentos.novo_pagamento}"><i class="material-icons">attach_money</i>Novo Pagamento</a></li>
-		<li><a class="waves-effect" href="@{Pagamentos.listar_pagamento}"><i class="material-icons">attach_money</i>Listar Pagamento</a></li>
-		
-		<li><div class="divider"></div></li>
-		<li><a class="waves-effect" href="@{Avisos.novo_aviso}"><i class="material-icons">attach_money</i>Novo Aviso</a></li>
-		<li><a class="waves-effect" href="@{Avisos.listar_avisos}"><i class="material-icons">attach_money</i>Listar Avisos</a></li>
-		
-		
-		<li><div class="divider"></div></li>
-		<li><a class="waves-effect" href="@{Caixas.lancamento_caixa}"><i class="material-icons">attach_money</i>Lançamento de Caixa</a></li>
-		<li><a class="waves-effect" href="@{Caixas.listar_caixa}"><i class="material-icons">attach_money</i>Livro de Caixa</a></li>
-		 -->
-		 
-		
-		
-		
-
-
-			
-
-			
 
 		 <div class="collapsible" data-collapsible="accordion">
 			
@@ -97,7 +62,8 @@
 				</div>
 			
 			</li>
-						
+			
+			#{if session.get("tipo").equals("ADMINISTRADOR")}			
 			<li>
 				<div class="collapsible-header">
 					<i class="material-icons">account_circle</i>Associados
@@ -122,6 +88,7 @@
 				</div>
 			</li>
 			
+			
 			<li>
 				<div class="collapsible-header">
 					<i class="material-icons">monetization_on</i>Pagamentos
@@ -133,6 +100,7 @@
 					</ul>
 				</div>
 			</li>
+			#{/if}
 			
 			<li>
 				<div class="collapsible-header">
@@ -140,7 +108,9 @@
 				</div>
 				<div class="collapsible-body">
 					<ul>
+						#{if session.get("tipo").equals("ADMINISTRADOR")}
 						<li><a class="waves-effect" href="@{Avisos.novo_aviso}"><i class="material-icons">attach_money</i>Novo Aviso</a></li>
+						#{/if}
 						<li><a class="waves-effect" href="@{Avisos.listar_avisos}"><i class="material-icons">attach_money</i>Listar Avisos</a></li>
 					</ul>
 				</div>
@@ -152,7 +122,9 @@
 				</div>
 				<div class="collapsible-body">
 					<ul>
+						#{if session.get("tipo").equals("ADMINISTRADOR")}
 						<li><a class="waves-effect" href="@{Caixas.lancamento_caixa}"><i class="material-icons">attach_money</i>Lançamento de Caixa</a></li>
+						#{/if}
 						<li><a class="waves-effect" href="@{Caixas.listar_caixa}"><i class="material-icons">attach_money</i>Livro de Caixa</a></li>
 					</ul>
 				</div>
@@ -199,7 +171,7 @@
 	<footer class="page-footer green darken-4">
 		<div class="container">
 			<div class="row">
-				<div class="col l6 s12">
+				<div class="col l9 s12">
 					<h5 class="white-text">Biografia</h5>
 					<p class="grey-text text-lighten-4 justify">A ASTEC-RN é a
 						primeira Associação de Técnicos em Manutenção de Celulares do
@@ -209,7 +181,7 @@
 
 
 				</div>
-				<div class="col l3 s12">
+				<!-- <div class="col l3 s12">
 					<h5 class="white-text">Settings</h5>
 					<ul>
 						<li><a class="white-text" href="#!">Link 1</a></li>
@@ -217,15 +189,14 @@
 						<li><a class="white-text" href="#!">Link 3</a></li>
 						<li><a class="white-text" href="#!">Link 4</a></li>
 					</ul>
-				</div>
+				</div> -->
 				<div class="col l3 s12">
-					<h5 class="white-text">Connect</h5>
+					<h5 class="white-text">Redes Sociais</h5>
 					<ul>
-						<li><a class="white-text"
-							href="https://www.facebook.com/astecrn">Facebook</a></li>
-						<li><a class="white-text" href="#!">Link 2</a></li>
-						<li><a class="white-text" href="#!">Link 3</a></li>
-						<li><a class="white-text" href="#!">Link 4</a></li>
+						<li><a class="white-text" href="https://www.facebook.com/astecrn" target="_blank">Facebook</a></li>
+						<li><a class="white-text" href="https://www.instagram.com/astecrn/?hl=pt-br" target="_blank">Instagram</a></li>
+						<!-- <li><a class="white-text" href="#!">Link 3</a></li>
+						<li><a class="white-text" href="#!">Link 4</a></li> -->
 					</ul>
 				</div>
 			</div>

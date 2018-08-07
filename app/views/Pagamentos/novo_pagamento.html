@@ -37,14 +37,14 @@
 		
 		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">account_circle</i>
-			<input value="${pagamento?.descricao}" name="pagamento.descricao" id="descricao" type="text" class="validate">
+			<input value="${pagamento == null ? flash['pagamento.descricao'] : pagamento.descricao}" name="pagamento.descricao" id="descricao" type="text" class="validate">
 			<label for="descricao">Descricao</label>
 			#{ifError 'pagamento.descricao'}<div class="erro">#{error 'pagamento.descricao' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m12 l12 xl6">
 			<i class="material-icons prefix">account_circle</i>
-			<input value="${pagamento?.semestre}" name="pagamento.semestre" id="semestre" type="text" class="validate">
+			<input value="${pagamento == null ? flash['pagamento.semestre'] : pagamento.semestre}" name="pagamento.semestre" id="semestre" type="text" class="validate">
 			<label for="semestre">Semestre</label>
 			#{ifError 'pagamento.semestre'}<div class="erro">#{error 'pagamento.semestre' /}</div>#{/ifError}
 		</div>
@@ -58,7 +58,7 @@
 						
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">attach_money</i>
-			<input value="" name="pagamento.valor" id="valor" type="text" class="validate">
+			<input value="${pagamento == null ? flash['pagamento.valor'] : pagamento.valor}" name="pagamento.valor" id="valor" type="text" class="validate">
 			<label for="valor">Valor</label>
 			#{ifError 'pagamento.valor'}<div class="erro">#{error 'pagamento.valor' /}</div>#{/ifError}
 		</div>
@@ -66,8 +66,8 @@
 		
 		<ul class="col s12 m12 l12 xl12">
 		
-		<!-- PRECISO EXIBIR A MENSAGEM DE ERRO SE NÃO TIVER PELO MENOS UM ASSOCIADO SELECIONADO -->
-		#{ifError 'pagamento.associado.id'}<div class="erro">#{error 'pagamento.associado.id' /}</div>#{/ifError}
+		
+		#{ifError 'associadoIDs'}<div class="red-text">#{error 'associadoIDs' /}</div>#{/ifError}
 		
 			
 			<p>

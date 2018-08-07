@@ -20,6 +20,17 @@
 		
 		<input type="hidden" value="${associado?.id}" name="associado.id">
 		
+		<div class="input-field col s12 m6 l12 xl6">
+			<i class="material-icons prefix">group</i>
+			<select name="associado.tipoUsuario" id="tipoUsuario" type="text" class="validate">
+				<option value="${associado.tipoUsuario}" disabled selected>${associado?.tipoUsuario}...</option>		
+		    	<option value="ASSOCIADO">ASSOCIADO</option>
+		    	<option value="ADMINISTRADOR">ADMINISTRADOR</option>
+		    </select>
+			<label for="tipoUsuario">Tipo de Usuário</label>
+			#{ifError 'associado.tipoUsuario'}<div class="erro">#{error 'associado.tipoUsuario' /}</div>#{/ifError}
+		</div>
+		
 		<div class="col s12 center">
 			#{if associado.foto?.exists()}
 				<img class=" circle" height="150px" width="150px" src="@{Associados.fotoAssociados(associado.id)}"><br>
@@ -38,14 +49,14 @@
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">credit_card</i>
-			<input value="${associado?.cpf}" name="associado.cpf" id="cpf" type="text" class="validate">
+			<input value="${associado == null ? flash['associado.cpf'] : associado.cpf}" name="associado.cpf" id="cpf" type="text" class="validate">
 			<label for="cpf">CPF</label>
 			#{ifError 'associado.cpf'}<div class="erro">#{error 'associado.cpf' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">subtitles</i>
-			<input value="${associado?.rg}" name="associado.rg" id="rg" type="text" class="validate">
+			<input value="${associado == null ? flash['associado.rg'] : associado.rg}" name="associado.rg" id="rg" type="text" class="validate">
 			<label for="rg">RG</label>
 			#{ifError 'associado.rg'}<div class="erro">#{error 'associado.rg' /}</div>#{/ifError}
 		</div>
@@ -72,14 +83,14 @@
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">call</i>
-			<input value="${associado?.telefone}" name="associado.telefone" id="telefone" type="text" class="validate">
+			<input value="${associado == null ? flash['associado.telefone'] : associado.telefone}" name="associado.telefone" id="telefone" type="text" class="validate">
 			<label for="telefone">Telefone</label>
 			#{ifError 'associado.telefone'}<div class="erro">#{error 'associado.telefone' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
-			<input value="${associado?.cidade}" name="associado.cidade" id="cidade" type="text" class="validate">
+			<input value="${associado == null ? flash['associado.cidade'] : associado.cidade}" name="associado.cidade" id="cidade" type="text" class="validate">
 			<label for="cidade">Cidade</label>
 			#{ifError 'associado.cidade'}<div class="erro">#{error 'associado.cidade' /}</div>#{/ifError}
 		</div>
@@ -98,14 +109,14 @@
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
-			<input value="${associado?.login}" name="associado.login" id="login" type="text" class="validate">
+			<input value="${associado == null ? flash['associado.login'] : associado.login}" name="associado.login" id="login" type="text" class="validate">
 			<label for="login">Login</label>
 			#{ifError 'associado.login'}<div class="erro">#{error 'associado.login' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m6 l12 xl6">
 			<i class="material-icons prefix">home</i>
-			<input value="${associado?.senha}" name="associado.senha" id="senha" type="password" class="validate">
+			<input value="${associado == null ? flash['associado.senha'] : associado.senha}" name="associado.senha" id="senha" type="password" class="validate">
 			<label for="senha">Senha</label>
 			#{ifError 'associado.senha'}<div class="erro">#{error 'associado.senha' /}</div>#{/ifError}
 		</div>

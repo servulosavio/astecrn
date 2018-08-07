@@ -1,6 +1,7 @@
 package jobs;
 
 import enums.Status;
+import enums.TipoUsuario;
 import models.Assistencia;
 import models.Usuario;
 import play.jobs.Job;
@@ -15,6 +16,7 @@ public class Inicializador extends Job{
 			Usuario usuario = new Usuario();
 			usuario.login = "admin";
 			usuario.senha = "admin";
+			usuario.tipoUsuario = TipoUsuario.ADMINISTRADOR;
 			usuario.status = Status.ATIVO;
 			usuario.save();
 		}

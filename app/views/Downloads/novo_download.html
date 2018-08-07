@@ -29,21 +29,21 @@
 
 		<div class="input-field col s12 m12 l12 xl12">
 			<i class="material-icons prefix">subtitles</i>
-			<input value="${download?.titulo}" name="download.titulo" id="titulo" type="text" class="validate">
+			<input value="${download == null ? flash['download.titulo'] : download.titulo}" name="download.titulo" id="titulo" type="text" class="validate">
 			<label for="titulo">Titulo</label>
 			#{ifError 'download.titulo'}<div class="erro">#{error 'download.titulo' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m12 l12 xl12">
 			<i class="material-icons prefix">business</i>
-			<input value="${download?.marca}" name="download.marca" id="marca" type="text" class="validate">
+			<input value="${download == null ? flash['download.marca'] : download.marca}" name="download.marca" id="marca" type="text" class="validate">
 			<label for="marca">Marca</label>
 			#{ifError 'download.marca'}<div class="erro">#{error 'download.marca' /}</div>#{/ifError}
 		</div>
 		
 		<div class="input-field col s12 m12 l12 xl12">
 			<i class="material-icons prefix">tablet_mac</i>
-			<input value="${download?.modelo}" name="download.modelo" id="modelo" type="text" class="validate">
+			<input value="${download == null ? flash['download.modelo'] : download.modelo}" name="download.modelo" id="modelo" type="text" class="validate">
 			<label for="modelo">Modelo</label>
 			#{ifError 'download.modelo'}<div class="erro">#{error 'download.modelo' /}</div>#{/ifError}
 		</div>
@@ -51,7 +51,7 @@
 				
 		<div class="file-field input-field col s12 m6 l12 xl6">
 			<div class="waves-effect waves-light btn">
-				<span>Selecionar</span> <input type="file" value="${download?.arquivo}" name="download.arquivo">
+				<span>Selecionar</span> <input type="file" value="${download == null ? flash['download.arquivo'] : download.arquivo}" name="download.arquivo">
 			</div>
 			<div class="file-path-wrapper">
 				<input class="file-path validate" type="text"

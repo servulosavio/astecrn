@@ -6,22 +6,29 @@ import java.util.List;
 
 import org.eclipse.jdt.internal.codeassist.impl.AssistCompilationUnit;
 
+import annotations.Administrador;
+import enums.Movimentacao;
 import enums.Status;
+import enums.TipoUsuario;
+import interceptors.Seguranca;
 import models.Assistencia;
 import models.Associado;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 
+
 @With(Sessao.class)
 
 public class Associados extends Controller {
 	
+	@Administrador
 	public static void novo(Associado associado) {
 		List<Assistencia> assistencias = Assistencia.findAll();
 		render(associado, assistencias);
 	}
 	
+	@Administrador
 	public static void salvar(@Valid Associado associado) {
 		System.out.println(params.get("excluirFoto"));
 		System.out.println(validation.hasErrors());
@@ -41,12 +48,22 @@ public class Associados extends Controller {
 		} else {
 			associado.status = Status.INATIVO;
 		}
+		
+		
+		if (associado.tipoUsuario.equals(TipoUsuario.ADMINISTRADOR)){
+			associado.tipoUsuario = TipoUsuario.ADMINISTRADOR;			
+		}else {
+			associado.tipoUsuario = TipoUsuario.ASSOCIADO;
+		}
+			
+		
 		associado.save();
 		flash.success("Cadastro Salvo com Sucesso!");
 		listar();
 		
 	}
 	
+	@Administrador
 	public static void editar(Long id) {
 		Associado associado = Associado.findById(id);
 		List<Assistencia> assistencias = Assistencia.findAll();
@@ -64,6 +81,7 @@ public class Associados extends Controller {
 		render(associados, assistencias);
 	}
 	
+	@Administrador
 	public static void inativar(Long id) {
 		Associado associado = Associado.findById(id);
 		associado.status = Status.INATIVO;
@@ -72,6 +90,7 @@ public class Associados extends Controller {
 		listar();
 	}
 	
+	@Administrador
 	public static void ativar(Long id) {
 		Associado associado = Associado.findById(id);
 		associado.status = Status.ATIVO;
@@ -84,6 +103,7 @@ public class Associados extends Controller {
 		List<Associado> associados = Associado.findAll();
 		render(associados);
 	}
+	
 	
 	public  static  void  fotoAssociados(Long  id) {
 	    Associado associado = Associado.findById(id);
