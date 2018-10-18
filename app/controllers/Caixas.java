@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import com.mysql.fabric.xmlrpc.base.Value;
 
 import enums.Movimentacao;
-import jdk.nashorn.internal.objects.annotations.Where;
+//import jdk.nashorn.internal.objects.annotations.Where;
 import models.Caixa;
 import models.Pagamento;
 import play.data.validation.Valid;
