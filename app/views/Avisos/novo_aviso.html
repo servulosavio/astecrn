@@ -27,7 +27,7 @@
 		
 		<div class="input-field col s12 m12 l12 xl12">
 			<i class="material-icons prefix">credit_card</i>
-			<textarea value="${aviso == null ? flash['aviso.mensagem'] : aviso.mensagem}" name="aviso.mensagem" id="mensagem" type="text" class="validate materialize-textarea"></textarea>
+			<textarea value="${aviso == null ? flash['aviso.mensagem'] : aviso.mensagem}" name="aviso.mensagem" id="mensagem" type="text" class="validate materialize-textarea ckeditor"></textarea>
 			<label for="mensagem">Mensagem</label>
 			#{ifError 'aviso.mensagem'}<div class="erro">#{error 'aviso.mensagem' /}</div>#{/ifError}
 		</div>
@@ -52,3 +52,5 @@
 
 	</div>
 </form>
+
+<script src="//cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
