@@ -39,8 +39,8 @@ public class Pagamentos extends Controller {
 		}
 		
 		String IDs = "-1";
-		/*if(associdadoIDs != null)
-			IDs = String.join(", ", associdadoIDs);*/
+		if(associdadoIDs != null)
+			IDs = String.join(", ", associdadoIDs);
 			
 		String query = "select a from Associado a where a.id in (" + IDs + ")";			
 		List<Associado> associados = Associado.find(query).fetch();
