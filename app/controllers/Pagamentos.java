@@ -39,7 +39,6 @@ public class Pagamentos extends Controller {
 		}
 		
 		String IDs = "-1";
-		String associadoIDs;
 		if(associadoIDs != null) {
 			//IDs = String.join(", ", associdadoIDs);
 			IDs = String.join(", ", associadoIDs);
