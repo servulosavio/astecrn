@@ -38,10 +38,14 @@ public class Pagamentos extends Controller {
 			novo_pagamento(pagamento);
 		}
 		
-		String IDs = "-1";
+//		String IDs = "-1";
 //		if(associadoIDs != null)
-			IDs = String.join(", ", associadoIDs);
-			
+//			IDs = String.join(", ", associadoIDs);
+		
+		//teste		
+		String IDs = String.join(", ", associadoIDs);
+		//---
+		
 		String query = "select a from Associado a where a.id in (" + IDs + ")";			
 		List<Associado> associados = Associado.find(query).fetch();
 		for(Associado associado: associados) {
