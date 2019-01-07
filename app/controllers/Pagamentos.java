@@ -24,7 +24,7 @@ public class Pagamentos extends Controller {
 		render(associados, pagamento);
 	}
 	
-	public static void salvar(@Valid Pagamento pagamento, List<String> associadoIDs) {
+	public static void salvar(@Valid Pagamento pagamento,List<String> associadoIDs) {
 		
 		System.out.println(validation.hasErrors());
 		
@@ -39,12 +39,8 @@ public class Pagamentos extends Controller {
 		}
 		
 		String IDs = "-1";
-		if(associadoIDs != null) {
-			//IDs = String.join(", ", associdadoIDs);
+		if(associadoIDs != null)
 			IDs = String.join(", ", associadoIDs);
-		}
-			
-			
 			
 		String query = "select a from Associado a where a.id in (" + IDs + ")";			
 		List<Associado> associados = Associado.find(query).fetch();
