@@ -24,11 +24,11 @@ public class Pagamentos extends Controller {
 		render(associados, pagamento);
 	}
 	
-	public static void salvar(@Valid Pagamento pagamento, List<String> associdadoIDs) {
+	public static void salvar(@Valid Pagamento pagamento, List<String> associadoIDs) {
 		
 		System.out.println(validation.hasErrors());
 		
-		if (associdadoIDs == null) {
+		if (associadoIDs == null) {
 			validation.addError("associadoIDs", "Selecione os associados que realizarão este pagamento");			
 		}
 		
@@ -39,9 +39,10 @@ public class Pagamentos extends Controller {
 		}
 		
 		String IDs = "-1";
-		if(associdadoIDs != null) {
+		String associadoIDs;
+		if(associadoIDs != null) {
 			//IDs = String.join(", ", associdadoIDs);
-			IDs = String.join(", ", associdadoIDs);
+			IDs = String.join(", ", associadoIDs);
 		}
 			
 			
