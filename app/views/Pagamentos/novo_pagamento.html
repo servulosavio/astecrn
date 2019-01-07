@@ -80,7 +80,7 @@
 				#{list items:associados, as:'associado'}
 	
 			<p>
-				<input ${(pagamento?.id !=null && pagamento?.associado.id == associado.id)? 'checked': '' } type="checkbox" name="associdadoIDs" value="${associado.id}" id="${associado.id}" />
+				<input ${(pagamento?.id !=null && pagamento?.associado.id == associado.id)? 'checked': '' } type="checkbox" name="associadoIDs" value="${associado.id}" id="${associado.id}" />
 				<label for="${associado.id}">${associado.nome}</label>	
 						
 			</p>
