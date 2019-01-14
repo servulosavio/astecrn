@@ -1,8 +1,11 @@
 package controllers;
 
+import java.util.Date;
+
 import annotations.Administrador;
 import enums.Status;
 import enums.TipoUsuario;
+import models.Log;
 import models.Usuario;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -67,11 +70,21 @@ public class Sessao extends Controller {
 			session.put("tipo", usuario.tipoUsuario);
 			session.put("login", usuario.login);
 			session.put("foto", usuario.foto);
+			Log log = new Log() ;
+			log.acao = "Fez login no sistema";
+			log.data = new Date();
+			log.usuario = session.get("usuario");
+			log.save();
 			Usuarios.gerenciador();
 		}
 	}
 	
 	public static void logout() {
+		Log log = new Log() ;
+		log.acao = "Fez logout no sistema";
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		session.clear();
 		Application.index();
 	}

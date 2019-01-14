@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -13,6 +14,7 @@ import enums.TipoUsuario;
 import interceptors.Seguranca;
 import models.Assistencia;
 import models.Associado;
+import models.Log;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -59,6 +61,11 @@ public class Associados extends Controller {
 		
 		associado.save();
 		flash.success("Cadastro Salvo com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "CADASTROU/EDITOU O ASSOCIADO: " + associado;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar();
 		
 	}
@@ -87,6 +94,11 @@ public class Associados extends Controller {
 		associado.status = Status.INATIVO;
 		associado.save();
 		flash.success("O Associado foi Inativado com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "INATIVOU O ASSOCIADO: " + associado;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar();
 	}
 	
@@ -96,6 +108,11 @@ public class Associados extends Controller {
 		associado.status = Status.ATIVO;
 		associado.save();
 		flash.success("O Associado foi Ativado com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "ATIVOU O ASSOCIADO: " + associado;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar();
 	}
 	

@@ -33,7 +33,7 @@
 			<td>${download.modelo}</td>
 			<td>
 				#{if download.arquivo?.exists()}
-					<a href="@{Downloads.anexoDownloads(download.id)}" target="_blank"><i class="material-icons">file_download</i></a>
+					<a href="@{Downloads.anexoDownloads(download.id)}" target="_blank"><i class="material-icons prefix">file_download</i>Download</a>
 				#{/if}
 			</td>
 		</tr>

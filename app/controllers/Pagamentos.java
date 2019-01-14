@@ -8,6 +8,7 @@ import org.apache.commons.mail.HtmlEmail;
 import enums.SituacaoPagamento;
 import models.Associado;
 import models.Contato;
+import models.Log;
 import models.Pagamento;
 import play.data.validation.Valid;
 import play.libs.Mail;
@@ -61,6 +62,11 @@ public class Pagamentos extends Controller {
 			associado.save();
 		}
 		flash.success("Pagamento Criado com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "CRIOU O PAGAMENTO: " + pagamento.descricao;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		Pagamentos.listar_pagamento();
 	}
 	
@@ -76,6 +82,11 @@ public class Pagamentos extends Controller {
 		pagamento.save();
 		Caixas.creditar(pagamento.valor, "RECEBIMENTO DE CONTAS: " + pagamento.associado.nome);
 		flash.success("Pagamento Criado com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "RECEBEU O PAGAMENTO: " + pagamento.descricao + " de " + pagamento.associado.nome;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		Pagamentos.listar_pagamento();
 	}
 	
@@ -96,6 +107,11 @@ public class Pagamentos extends Controller {
 			e.printStackTrace();
 		}
 		flash.success("Mensagem Enviada com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "ENVIOU COBRANÇA REFERENTE AO PAGAMENTO: " + pagamento.descricao + " AO ASSOCIADO: " + pagamento.associado.nome;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar_pagamento();
 		
 		

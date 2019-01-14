@@ -12,6 +12,7 @@ import com.mysql.fabric.xmlrpc.base.Value;
 import enums.Movimentacao;
 /*import jdk.nashorn.internal.objects.annotations.Where;*/
 import models.Caixa;
+import models.Log;
 import models.Pagamento;
 import play.data.validation.Valid;
 import play.db.jpa.JPA;
@@ -57,6 +58,11 @@ public class Caixas extends Controller {
 		caixa.valor = valor;
 		caixa.save();
 		flash.success("Valor Creditado com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "EFETUOU O LANÇAMENTO DO CRÉDITO: " + caixa.descricao;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar_caixa();
 	}
 	
@@ -68,6 +74,11 @@ public class Caixas extends Controller {
 		caixa.valor = valor.negate();
 		caixa.save();
 		flash.success("Valor Debitado com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "EFETUOU O LANÇAMENTO DO DÉBITO: " + caixa.descricao;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar_caixa();
 	}
 	

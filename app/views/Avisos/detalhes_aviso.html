@@ -3,6 +3,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<script src="//cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 </head>
 
 <div class="row">	
@@ -16,6 +17,8 @@
 		<div class="icon-block">
 			<h5>${aviso?.assunto}</h5>
 			<p class="light justify">${aviso?.mensagem}</p>
+			<div>${aviso?.mensagem}</div>
+			
 			#{if aviso.anexo?.exists()}
 				<a href="@{Avisos.anexoAvisos(aviso.id)}" target="_blank">Visualizar Anexo</a>
 			#{/if}
@@ -29,3 +32,4 @@
 </div>
 
 
+<script src="//cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>

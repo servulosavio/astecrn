@@ -1,9 +1,11 @@
 package controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import models.Aviso;
 import models.Download;
+import models.Log;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -26,6 +28,11 @@ public class Downloads extends Controller {
 		
 		download.save();
 		flash.success("Aviso Salvo com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "CADASTROU/EDITOU O ARQUIVO: " + download.titulo;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar_downloads();
 	}
 	
@@ -49,6 +56,11 @@ public class Downloads extends Controller {
 		Download download = Download.findById(id);
 		download.delete();
 		flash.success("Aviso Removido com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "REMOVEU O ARQUIVO: " + download.titulo;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar_downloads();
 	}
 	
@@ -57,6 +69,11 @@ public class Downloads extends Controller {
 	    notFoundIfNull(download);
 	    response.setContentTypeIfNotSet(download.arquivo.type());
 	    renderBinary(download.arquivo.get());
+	    Log log = new Log() ;
+		log.acao = "FEZ DOWNLOAD DO ARQUIVO: " + download.titulo;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 	}
 
 }

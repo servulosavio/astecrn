@@ -1,9 +1,11 @@
 package controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import models.Assistencia;
 import models.Associado;
+import models.Log;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -27,6 +29,11 @@ public class Assistencias extends Controller {
 		
 		assistencia.save();
 		flash.success("Cadastro Salvo com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "CADASTROU/EDITOU A ASSISTÊNCIA: " + assistencia;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar_assistencias();
 		
 	}
@@ -54,6 +61,11 @@ public class Assistencias extends Controller {
 		}	
 		assistencia.delete();
 		flash.success("Cadastro Removido com Sucesso!");
+		Log log = new Log() ;
+		log.acao = "REMOVEU A ASSISTÊNCIA: " + assistencia;
+		log.data = new Date();
+		log.usuario = session.get("usuario");
+		log.save();
 		listar_assistencias();
 	}
 }
